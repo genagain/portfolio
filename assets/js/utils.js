@@ -4,6 +4,7 @@ import cache from 'cache'
 import ajax from 'please-ajax'
 import create from 'dom-create-element'
 import classes from 'dom-classes'
+import Mustache from 'mustache'
 
 const utils = {
 
@@ -14,9 +15,9 @@ const utils = {
             return `rect(${top}px, ${right}px, ${bottom}px, ${left}px)`;
         }
     },
-	
+
     js: {
-		
+
         array: {
 
             from(opt) {
@@ -69,7 +70,7 @@ const utils = {
             interval(callback, opts = { delay: 500, duration: 1500 }) {
 
                 let rAF, start, loop
-                
+
                 const tick = now => {
 
                     if (now - loop >= opts.delay) {
@@ -83,7 +84,7 @@ const utils = {
                         cancelAnimationFrame(rAF)
                     }
                 }
-                
+
                 start = loop = performance.now()
                 rAF = requestAnimationFrame(tick)
             }
@@ -92,7 +93,7 @@ const utils = {
         dom: {
 
             each(nodelist, callback) {
-                
+
                 let i = -1
                 const l = nodelist.length
 
@@ -109,7 +110,7 @@ const utils = {
     },
 
     biggie: {
-		
+
         addRoutingEL(a) {
 
             utils.js.array.from(a).forEach((el) => el.onclick = utils.biggie.handleRoute)
@@ -135,9 +136,9 @@ const utils = {
 
             const params = Object.keys(req.params).length === 0 && JSON.stringify(req.params) === JSON.stringify({})
             let route = req.route === config.BASE ? '/home' : req.route
-            
+
             if(!params) {
-            	
+
             	for (var key in req.params) {
                     if (req.params.hasOwnProperty(key)) {
 
@@ -164,18 +165,18 @@ const utils = {
             view.appendChild(page)
 
             if(!cache[slug] || !options.cache) {
-            	
-            	ajax.get(`${config.BASE}templates/${slug}.html`, {
+
+            	ajax.get(`${config.BASE}templates/${slug}.mst`, {
             		success: (object) => {
-            			const html = object.data
-            			page.innerHTML = html
-            			if(options.cache) cache[slug] = html
+            			const rendered = Mustache.render(object.data, window._data)
+            			page.innerHTML = rendered
+            			if(options.cache) cache[slug] = rendered
             			done()
             		}
             	})
 
             } else {
-            	
+
             	setTimeout(() => {
             		page.innerHTML = cache[slug]
             		done()
