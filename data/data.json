@@ -1,5 +1,6 @@
 {
   "commands" : {
+    "home" : "this is the home page",
     "work" : "this is my work",
     "about" : "my bio"
   }
