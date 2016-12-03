@@ -1,7 +1,4 @@
-import framework from 'framework'
-import domselect from 'dom-select'
-import utils from 'utils'
+import App from './app'
 
-utils.biggie.addRoutingEL(domselect.all('nav a'))
+const app = new App()
 
-framework.init()
