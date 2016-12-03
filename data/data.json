@@ -1,7 +1,24 @@
 {
-  "commands" : {
+  "data" : {
     "home" : "this is the home page",
-    "work" : "this is my work",
-    "about" : "my bio"
+    "about" : "my bio",
+    "projects" : {
+      "capstone" : "capstone page here",
+      "the_hook" : "the hook page here",
+      "cloud" : "cloud metric backup system page here",
+      "poster" : "poster page here"
+    }
+  },
+  "commands" : {
+    "home" : "/",
+    "about" : "/about/",
+    "projects" : {
+      "list" : "[(1) capstone, (2) the hook, (3) cloud metric backup system, (4) poster]",
+      "1" : "/projects/capstone",
+      "2" : "/projects/the-hook",
+      "3" : "/projects/cloud-metric-backup-system",
+      "4" : "/projects/poster"
+    },
+    "error" : "command not found... type 'help' to see a list of available commands."
   }
 }
