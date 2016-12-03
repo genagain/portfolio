@@ -156,19 +156,67 @@ const utils = {
             return route.substr(1)
         },
 
+        createPage(req, slug) {
+
+          const cn = slug.substring(0,7) === 'project' ? 'project' : slug.replace('/', '-')
+
+          return create({
+            selector: 'div',
+            id: `page-${cn}`,
+            styles: `page page-${cn}`
+          })
+        },
+
         loadPage(req, view, options, done) {
 
             const slug = utils.biggie.getSlug(req, options)
-            const cn = slug.replace('/', '-')
-            const page = create({ selector: 'div', id: `page-${cn}`, styles: `page page-${cn}` })
-
-            view.appendChild(page)
+            const page = utils.biggie.createPage(req, slug)
 
             if(!cache[slug] || !options.cache) {
 
-            	ajax.get(`${config.BASE}templates/${slug}.mst`, {
+              const data = req.params.id ? window._data.projects[req.params.id] : window._data
+              const href = slug.substring(0,7) === 'project' ? 'project' : slug
+
+              if(req.params.id) {
+
+                const projects = window._data.projects
+                let index = 1
+
+                data.projects = []
+
+                for (var prop in projects){
+
+                  if (projects.hasOwnProperty(prop)){
+
+                    const i = index.toString().length === 1 ? `0${index}` : index
+                      const o = {
+                        'index': i,
+                        'current': req.params.id === prop,
+                        'key': prop,
+                        'data': projects[prop]
+                      }
+
+                    if(req.params.id === prop) {
+
+                      // data.projects.unshift(o)
+                      config.index = index-1
+                      config.color = projects[prop].index_color
+
+                    } else {
+
+                      // data.projects.push(o)
+                    }
+
+                    data.projects.push(o)
+
+                    index++
+                  }
+                }
+              }
+
+            	ajax.get(`${config.BASE}templates/${href}.mst`, {
             		success: (object) => {
-            			const rendered = Mustache.render(object.data, window._data)
+            			const rendered = Mustache.render(object.data, data)
             			page.innerHTML = rendered
             			if(options.cache) cache[slug] = rendered
             			done()
@@ -182,6 +230,8 @@ const utils = {
             		done()
             	}, 1)
             }
+
+            view.appendChild(page)
 
             return page
         }
