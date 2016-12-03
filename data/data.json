@@ -1,20 +1,18 @@
 {
-  "data" : {
-    "home" : "this is the home page",
-    "about" : "my bio",
-    "projects" : {
-      "capstone" : {
-        "title" : "capstone page here"
-      },
-      "the-hook" : {
-        "title" : "the hook page here"
-      },
-      "cloud-metric-backup-system" : {
-        "title" : "cloud metric backup system page here"
-      },
-      "poster" : {
-        "title" : "poster page here"
-      }
+  "home" : "this is the home page",
+  "about" : "my bio",
+  "projects" : {
+    "capstone" : {
+      "title" : "capstone page here"
+    },
+    "the-hook" : {
+      "title" : "the hook page here"
+    },
+    "cloud-metric-backup-system" : {
+      "title" : "cloud metric backup system page here"
+    },
+    "poster" : {
+      "title" : "poster page here"
     }
   },
   "commands" : {
