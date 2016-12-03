@@ -33,8 +33,28 @@ class App {
   onSubmit(e) {
 
     e.preventDefault()
-    
-    console.log('submit')
+
+    const userInput = this.dom.input.value
+    const commands = Object.keys(window._data.commands)
+
+    let validCommand = false
+
+    while (!validCommand) {
+
+      if (userInput === 'about' || userInput === 'home') {
+
+        // route to appropriate section
+        framework.go(window._data.commands[userInput])
+
+        validCommand = true
+        
+      } else if (userInput === 'projects') {
+
+        console.log('projects')
+
+        validCommand = true
+      }
+    }
   }
 
 }
