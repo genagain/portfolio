@@ -19,6 +19,7 @@
     "dom-event": "^1.0.0",
     "dom-select": "^1.0.0",
     "gsap": "^1.19.0",
+    "mustache": "^2.3.0",
     "please-ajax": "^2.0.2",
     "query-dom-components": "^0.1.0",
     "sniffer": "github:watsondg/sniffer"
