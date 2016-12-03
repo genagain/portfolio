@@ -11,6 +11,8 @@ class App {
 
     this.dom = queryDom({ el: config.body })
 
+    this.onSubmit = this.onSubmit.bind(this)
+
     this.init()
   }
 
@@ -23,18 +25,16 @@ class App {
   addEvents() {
 
     utils.biggie.addRoutingEL(domselect.all('nav a'))
-    // add submit event listener
 
-    events.on(this.dom.submit, 'submit', this.onSubmit, this)
-
-    // check the value of the input once the submit event lister is trigger
-    // map the value to a route
+    // listen to submit event
+    events.on(this.dom.form, 'submit', this.onSubmit)
   }
 
   onSubmit(e) {
 
+    e.preventDefault()
+    
     console.log('submit')
-    return false
   }
 
 }
