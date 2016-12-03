@@ -3,10 +3,18 @@
     "home" : "this is the home page",
     "about" : "my bio",
     "projects" : {
-      "capstone" : "capstone page here",
-      "the_hook" : "the hook page here",
-      "cloud" : "cloud metric backup system page here",
-      "poster" : "poster page here"
+      "capstone" : {
+        "title" : "capstone page here"
+      },
+      "the-hook" : {
+        "title" : "the hook page here"
+      },
+      "cloud-metric-backup-system" : {
+        "title" : "cloud metric backup system page here"
+      },
+      "poster" : {
+        "title" : "poster page here"
+      }
     }
   },
   "commands" : {
