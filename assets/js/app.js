@@ -62,7 +62,12 @@ class App {
         this.printCommandResponseList(projects)
 
         validCommand = true
+      } else if (userInput === 'clear') {
 
+        this.dom.commandHistory.innerHTML = ''
+
+        validCommand = true
+        
       } else if (userInput === '') {
 
         validCommand = true
