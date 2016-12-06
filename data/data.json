@@ -20,10 +20,10 @@
     "about" : "/about/",
     "projects" : {
       "list" : "[(1) capstone, (2) the hook, (3) cloud metric backup system, (4) poster]",
-      "1" : "/projects/capstone",
-      "2" : "/projects/the-hook",
-      "3" : "/projects/cloud-metric-backup-system",
-      "4" : "/projects/poster"
+      "1" : "/project/capstone",
+      "2" : "/project/the-hook",
+      "3" : "/project/cloud-metric-backup-system",
+      "4" : "/project/poster"
     },
     "error" : "command not found... type 'help' to see a list of available commands."
   }

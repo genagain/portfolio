@@ -20,6 +20,8 @@ class App {
 
     this.addEvents()
     framework.init()
+
+    this.dom.input.focus()
   }
 
   addEvents() {
@@ -35,7 +37,7 @@ class App {
     e.preventDefault()
 
     const userInput = this.dom.input.value
-    const commands = Object.keys(window._data.commands)
+    const { commands } = window._data
 
     let validCommand = false
 
@@ -44,19 +46,60 @@ class App {
       if (userInput === 'about' || userInput === 'home') {
 
         // route to appropriate section
-        framework.go(window._data.commands[userInput])
+        framework.go(commands[userInput])
+
+        validCommand = true
+
+      } else if (userInput.match(/([1-4])/) && userInput.length === 1) {
+
+        framework.go(commands.projects[userInput])
+
+        validCommand = true
+      } else if (userInput === 'projects') {
+
+        const projects = commands.projects.list.slice(1, -1).split(', ')
+
+        this.printCommandResponseList(projects)
+
+        validCommand = true
+      } else if (userInput === 'clear') {
+
+        this.dom.commandHistory.innerHTML = ''
 
         validCommand = true
         
-      } else if (userInput === 'projects') {
+      } else if (userInput === '') {
 
-        console.log('projects')
+        validCommand = true
+
+      } else {
+
+        this.printCommandResponse(commands.error)
 
         validCommand = true
       }
     }
+
+    this.dom.input.value = ''
+    this.dom.input.focus()
   }
 
+  printCommandResponse(response) {
+
+    const li = document.createElement('li')
+
+    li.innerHTML = response
+
+    this.dom.commandHistory.appendChild(li)
+  }
+
+  printCommandResponseList(arr) {
+
+    arr.forEach(x => {
+
+      this.printCommandResponse(x)
+    })
+  }
 }
 
 module.exports = App
