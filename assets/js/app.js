@@ -57,11 +57,7 @@ class App {
         // fix jshint error: "don't make functions within a loop"
         projects.forEach(project => {
 
-          const li = document.createElement('li')
-
-          li.innerHTML = project
-
-          this.dom.commandHistory.appendChild(li)
+          this.printCommandResponse(project)
         })
 
         validCommand = true
@@ -72,11 +68,7 @@ class App {
 
       } else {
 
-        const li = document.createElement('li')
-
-        li.innerHTML = commands.error
-
-        this.dom.commandHistory.appendChild(li)
+        this.printCommandResponse(commands.error)
 
         validCommand = true
       }
@@ -84,6 +76,15 @@ class App {
 
     this.dom.input.value = ''
     this.dom.input.focus()
+  }
+
+  printCommandResponse(response) {
+
+    const li = document.createElement('li')
+
+    li.innerHTML = response
+
+    this.dom.commandHistory.appendChild(li)
   }
 
 }
