@@ -55,6 +55,9 @@ class App {
         console.log('projects')
 
         validCommand = true
+      } else if (userInput === '') {
+        
+        validCommand = true
       }
     }
 
