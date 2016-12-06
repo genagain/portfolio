@@ -20,6 +20,8 @@ class App {
 
     this.addEvents()
     framework.init()
+
+    this.dom.input.focus()
   }
 
   addEvents() {
@@ -57,6 +59,7 @@ class App {
     }
 
     this.dom.input.value = ''
+    this.dom.input.focus()
 
   }
 
