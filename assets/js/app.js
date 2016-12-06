@@ -56,7 +56,12 @@ class App {
 
         validCommand = true
       } else if (userInput === '') {
-        
+
+        validCommand = true
+      } else {
+
+        console.log(commands.error)
+
         validCommand = true
       }
     }
