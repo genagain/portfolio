@@ -50,15 +50,16 @@ class App {
 
         validCommand = true
 
+      } else if (userInput.match(/([1-4])/) && userInput.length === 1) {
+
+        framework.go(commands.projects[userInput])
+
+        validCommand = true
       } else if (userInput === 'projects') {
 
         const projects = commands.projects.list.slice(1, -1).split(', ')
 
-        // fix jshint error: "don't make functions within a loop"
-        projects.forEach(project => {
-
-          this.printCommandResponse(project)
-        })
+        this.printCommandResponseList(projects)
 
         validCommand = true
 
@@ -87,6 +88,13 @@ class App {
     this.dom.commandHistory.appendChild(li)
   }
 
+  printCommandResponseList(arr) {
+
+    arr.forEach(x => {
+
+      this.printCommandResponse(x)
+    })
+  }
 }
 
 module.exports = App
