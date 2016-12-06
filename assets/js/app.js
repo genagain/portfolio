@@ -46,7 +46,7 @@ class App {
       if (userInput === 'about' || userInput === 'home') {
 
         // route to appropriate section
-        framework.go(window._data.commands[userInput])
+        framework.go(commands[userInput])
 
         validCommand = true
 
