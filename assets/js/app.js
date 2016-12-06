@@ -52,15 +52,31 @@ class App {
 
       } else if (userInput === 'projects') {
 
-        console.log('projects')
+        const projects = commands.projects.list.slice(1, -1).split(', ')
+
+        // fix jshint error: "don't make functions within a loop"
+        projects.forEach(project => {
+
+          const li = document.createElement('li')
+
+          li.innerHTML = project
+
+          this.dom.commandHistory.appendChild(li)
+        })
 
         validCommand = true
+
       } else if (userInput === '') {
 
         validCommand = true
+
       } else {
 
-        console.log(commands.error)
+        const li = document.createElement('li')
+
+        li.innerHTML = commands.error
+
+        this.dom.commandHistory.appendChild(li)
 
         validCommand = true
       }
