@@ -37,7 +37,7 @@ class App {
     e.preventDefault()
 
     const userInput = this.dom.input.value
-    const commands = Object.keys(window._data.commands)
+    const { commands } = window._data
 
     let validCommand = false
 
@@ -60,7 +60,6 @@ class App {
 
     this.dom.input.value = ''
     this.dom.input.focus()
-
   }
 
 }
