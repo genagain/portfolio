@@ -47,7 +47,7 @@ class App {
         framework.go(window._data.commands[userInput])
 
         validCommand = true
-        
+
       } else if (userInput === 'projects') {
 
         console.log('projects')
@@ -55,6 +55,9 @@ class App {
         validCommand = true
       }
     }
+
+    this.dom.input.value = ''
+
   }
 
 }
