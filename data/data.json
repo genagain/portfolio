@@ -13,7 +13,7 @@
     },
     "frqnt-flyr" : {
       "title" : "Frqnt Flyr",
-      "media" : { 
+      "media" : {
         "michael" : "https://www.linkedin.com/in/swartzm",
         "eric" : "https://www.linkedin.com/in/erikgrueter",
         "david" : "https://www.linkedin.com/in/davidtsang1",
@@ -30,7 +30,7 @@
         "For styling, we used Foundation with custom Sass",
         "You can click here to see the app for yourself",
         "To see the source code on Github, click here"
-      ] 
+      ]
     },
     "poster" : {
       "title" : "poster page here"
@@ -40,7 +40,12 @@
     "home" : "/",
     "about" : "/about/",
     "projects" : {
-      "list" : "[(1) capstone, (2) the hook, (3) cloud metric backup system, (4) poster]",
+      "list" : [
+        "(1) capstone",
+        "(2) the hook",
+        "(3) cloud metric backup system",
+        "(4) poster"
+      ],
       "1" : "/project/capstone",
       "2" : "/project/the-hook",
       "3" : "/project/cloud-metric-backup-system",
