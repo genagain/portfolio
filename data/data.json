@@ -11,6 +11,14 @@
     "cloud-metric-backup-system" : {
       "title" : "cloud metric backup system page here"
     },
+    "frqnt-flyr" : {
+      "title" : "Frqnt Flyr",
+      "media" : ["http://frqntflyr.herokuapp.com",
+                "https://www.linkedin.com/in/swartzm",
+                "https://www.linkedin.com/in/erikgrueter",
+                "https://www.linkedin.com/in/davidtsang1"],
+      "content" : ""
+    },
     "poster" : {
       "title" : "poster page here"
     }
