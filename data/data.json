@@ -11,6 +11,27 @@
     "cloud-metric-backup-system" : {
       "title" : "cloud metric backup system page here"
     },
+    "frqnt-flyr" : {
+      "title" : "Frqnt Flyr",
+      "media" : { 
+        "michael" : "https://www.linkedin.com/in/swartzm",
+        "eric" : "https://www.linkedin.com/in/erikgrueter",
+        "david" : "https://www.linkedin.com/in/davidtsang1",
+        "launch-academy" : "https://launchacademy.com",
+        "heroku-url" : "http://frqntflyr.herokuapp.com",
+        "github" : "https://github.com/MichaelSwartz/airlines"
+      },
+      "content" : [
+        "Frqnt Flyr is a web app that allows users to review airlines",
+        "Michael, Eric, David and I made this",
+        "It was the first web app any of us had ever deployed",
+        "We made this app during our time at Launch Academy for a group project",
+        "We used the CarrierWave gem with Amazon S3 for file upload and incorporated pagination into a Ruby on Rails web app with a PostgresSQL database",
+        "For styling, we used Foundation with custom Sass",
+        "You can click here to see the app for yourself",
+        "To see the source code on Github, click here"
+      ] 
+    },
     "poster" : {
       "title" : "poster page here"
     }
