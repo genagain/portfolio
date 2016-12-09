@@ -18,9 +18,8 @@
         "michael" : "https://www.linkedin.com/in/swartzm",
         "eric" : "https://www.linkedin.com/in/erikgrueter",
         "david" : "https://www.linkedin.com/in/davidtsang1",
-        "homepage-img" : "./assets/img/app_home.png",
-        "foundation" : "http://foundation.zurb.com/",
-        "sass" : "http://sass-lang.com/"
+        "launch-academy" : "https://launchacademy.com",
+        "homepage-img" : "./assets/img/app_home.png"
       },
       "content" : ""
     },
