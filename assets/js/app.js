@@ -36,48 +36,27 @@ class App {
 
     e.preventDefault()
 
-    const userInput = this.dom.input.value
+    const userInput = this.dom.input.value.trim()
     const { commands } = window._data
 
-    let validCommand = false
+    if (userInput === 'about' || userInput === 'home') {
+      // route to appropriate section
+      framework.go(commands[userInput])
 
-    while (!validCommand) {
+    } else if (userInput.match(/([1-4])/) && userInput.length === 1) {
+      framework.go(commands.projects[userInput])
 
-      if (userInput === 'about' || userInput === 'home') {
+    } else if (userInput === 'projects') {
+      this.printCommandResponseList(commands.projects.list)
 
-        // route to appropriate section
-        framework.go(commands[userInput])
+    } else if (userInput === 'clear') {
+      this.dom.commandHistory.innerHTML = ''
 
-        validCommand = true
+    } else if (userInput === '') {
+      return
 
-      } else if (userInput.match(/([1-4])/) && userInput.length === 1) {
-
-        framework.go(commands.projects[userInput])
-
-        validCommand = true
-      } else if (userInput === 'projects') {
-
-        const projects = commands.projects.list.slice(1, -1).split(', ')
-
-        this.printCommandResponseList(projects)
-
-        validCommand = true
-      } else if (userInput === 'clear') {
-
-        this.dom.commandHistory.innerHTML = ''
-
-        validCommand = true
-        
-      } else if (userInput === '') {
-
-        validCommand = true
-
-      } else {
-
-        this.printCommandResponse(commands.error)
-
-        validCommand = true
-      }
+    } else {
+      this.printCommandResponse(commands.error)
     }
 
     this.dom.input.value = ''
