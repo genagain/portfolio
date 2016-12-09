@@ -28,9 +28,8 @@
         "We made this app during our time at <a href=\"{{ media.launch-academy }}\"> Launch Academy </a> for a group project",
         "We used the CarrierWave gem with Amazon S3 for file upload and incorporated pagination into a Ruby on Rails web app with a PostgresSQL database",
         "For styling, we used Foundation with custom Sass",
-        "You can click < a href = \"{{ media.heroku-url }}\"> here </a> to see the app for yourself",
-        "To see the source code on Github, click <a href = \"{{ media.github }}\"> here </a>",
-        "Below is an image of the front page"
+        "You can click <a href = \"{{ media.heroku-url }}\"> here </a> to see the app for yourself",
+        "To see the source code on Github, click <a href = \"{{ media.github }}\"> here </a>"
       ] 
     },
     "poster" : {
