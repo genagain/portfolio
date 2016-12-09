@@ -13,10 +13,12 @@
     },
     "frqnt-flyr" : {
       "title" : "Frqnt Flyr",
-      "media" : ["http://frqntflyr.herokuapp.com",
-                "https://www.linkedin.com/in/swartzm",
-                "https://www.linkedin.com/in/erikgrueter",
-                "https://www.linkedin.com/in/davidtsang1"],
+      "media" : { "heroku-url" : "http://frqntflyr.herokuapp.com",
+                "michael" : "https://www.linkedin.com/in/swartzm",
+                "eric" : "https://www.linkedin.com/in/erikgrueter",
+                "david" : "https://www.linkedin.com/in/davidtsang1",
+                "homepage-img" : "./assets/img/app_home.png"
+      },
       "content" : ""
     },
     "poster" : {
