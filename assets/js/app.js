@@ -37,6 +37,8 @@ class App {
     e.preventDefault()
 
     const userInput = this.dom.input.value.trim()
+    config.commandHistory.push(userInput)
+
     const { commands } = window._data
 
     if (userInput === 'about' || userInput === 'home') {
