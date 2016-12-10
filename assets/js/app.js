@@ -37,7 +37,7 @@ class App {
     e.preventDefault()
 
     const userInput = this.dom.input.value.trim()
-    config.commandHistory.push(userInput)
+    userInput !== '' ? config.commandHistory.push(userInput) : null
 
     const { commands } = window._data
 
@@ -55,8 +55,7 @@ class App {
       this.dom.commandHistory.innerHTML = ''
 
     } else if (userInput === '') {
-      return
-
+      // add blank segment logic here
     } else {
       this.printCommandResponse(commands.error)
     }
