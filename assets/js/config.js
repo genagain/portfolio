@@ -1,4 +1,5 @@
 import domselect from 'dom-select'
+import DLL from './lib/doubly-linked-list'
 
 const config = {
 
@@ -12,7 +13,7 @@ const config = {
 
   infos: null,
 
-	commandHistory: []
+	hist: []
 }
 
 export default config
