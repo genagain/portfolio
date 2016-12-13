@@ -1,5 +1,4 @@
 import domselect from 'dom-select'
-import DLL from './lib/doubly-linked-list'
 
 const config = {
 
@@ -11,7 +10,7 @@ const config = {
 	width: window.innerWidth,
 	height: window.innerHeight,
 
-  infos: null,
+	infos: null,
 
 	hist: []
 }
