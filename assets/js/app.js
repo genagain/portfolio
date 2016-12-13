@@ -36,7 +36,7 @@ class App {
 
   onKeyPress(e) {
 
-  switch(e.keyCode) {
+    switch(e.keyCode) {
       case App.KEY_UP:
         if (this.index > 0 && this.index <= config.hist.length) {
           this.index -= 1
