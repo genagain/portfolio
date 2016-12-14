@@ -12,7 +12,7 @@
 	box-sizing: border-box;
 
 	text-rendering: optimizeLegibility;
-	
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
@@ -63,7 +63,7 @@ Utils
 	display: table;
 	position: relative;
 	.size(100%,100%);
-	
+
 	&__item {
 		display: table-cell;
 		vertical-align: middle
@@ -120,3 +120,21 @@ Sub Views
 Medias Queries
 ----- */
 @import "import/_medias.less";
+
+
+// these two rules will be moved later on
+// for better organization
+.segment {
+	padding: 2px 0;
+	&:before {
+		content: '$';
+		display: inline-block;
+		margin-right: 8px;
+	}
+}
+// these two rules will be moved later on
+// for better organization
+.segment__list {
+	display: inline-block;
+	vertical-align: top;
+}
