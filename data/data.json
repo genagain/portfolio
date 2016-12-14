@@ -38,7 +38,7 @@
   },
   "commands" : {
     "home" : "/",
-    "about" : "/about/",
+    "about" : "this is my bio.",
     "projects" : {
       "list" : [
         "(1) capstone",
