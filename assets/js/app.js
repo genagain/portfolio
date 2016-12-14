@@ -4,6 +4,7 @@ import utils from 'utils'
 import queryDom from 'query-dom-components'
 import config from 'config'
 import events from 'dom-event'
+import classes from 'dom-classes'
 
 class App {
 
@@ -80,7 +81,7 @@ class App {
       this.dom.commands.innerHTML = ''
 
     } else if (userInput === '') {
-      // add blank segment logic here
+      this.printCommandResponse('')
     } else {
       this.printCommandResponse(commands.error)
     }
@@ -92,13 +93,22 @@ class App {
   printCommandResponse(response) {
     const li = document.createElement('li')
     li.innerHTML = response
+    classes.add(li, 'segment')
     this.dom.commands.appendChild(li)
   }
 
   printCommandResponseList(arr) {
-    arr.forEach(x => {
-      this.printCommandResponse(x)
+
+    const ul = document.createElement('ul')
+    classes.add(ul, 'segment__list')
+
+    arr.forEach(item => {
+      const li = document.createElement('li')
+      li.innerHTML = item
+      ul.appendChild(li)
     })
+
+    this.printCommandResponse(ul.outerHTML)
   }
 
   static get KEY_UP() {
