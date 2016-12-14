@@ -67,7 +67,7 @@ class App {
 
     const { commands } = window._data
 
-    if (userInput === 'about' || userInput === 'home') {
+    if (userInput === 'home') {
       // route to appropriate section
       framework.go(commands[userInput])
 
@@ -77,11 +77,15 @@ class App {
     } else if (userInput === 'projects') {
       this.printCommandResponseList(commands.projects.list)
 
+    } else if (userInput === 'about') {
+      this.printCommandResponse(commands.about)
+
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
 
     } else if (userInput === '') {
       this.printCommandResponse('')
+      
     } else {
       this.printCommandResponse(commands.error)
     }
