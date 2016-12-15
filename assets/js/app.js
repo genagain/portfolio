@@ -65,7 +65,7 @@ class App {
 
     this.index = config.hist.length
 
-    const { commands } = window._data
+    const { commands, social } = window._data
 
     if (userInput === 'about' || userInput === 'home') {
       // route to appropriate section
@@ -77,13 +77,18 @@ class App {
     } else if (userInput === 'projects') {
       this.printCommandResponseList(commands.projects.list)
 
+    } else if (userInput === 'social') {
+      this.printCommandResponseSocial(social)
+
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
 
     } else if (userInput === '') {
       this.printCommandResponse('')
+
     } else {
       this.printCommandResponse(commands.error)
+
     }
 
     this.dom.input.value = ''
@@ -111,6 +116,21 @@ class App {
     this.printCommandResponse(ul.outerHTML)
   }
 
+  printCommandResponseSocial(arr) {
+
+    const info = arr.map(item => {
+      if (item.includes('http')) {
+        const anchor = document.createElement('a')
+        anchor.innerHTML = item
+        anchor.href = item
+        return anchor.outerHTML
+      } else {
+        return item
+      }
+    })
+
+    this.printCommandResponseList(info)
+  }
   static get KEY_UP() {
     return 38
   }

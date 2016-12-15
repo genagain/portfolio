@@ -57,5 +57,10 @@
       "4" : "/project/poster"
     },
     "error" : "command not found... type 'help' to see a list of available commands."
-  }
+  },
+  "social" : [
+   "https://github.com/genagain",
+   "https://www.linkedin.com/in/genohta",
+   "ohta.g@husky.neu.edu"
+  ]
 }
