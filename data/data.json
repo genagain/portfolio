@@ -39,6 +39,20 @@
   "commands" : {
     "home" : "/",
     "about" : "this is my bio.",
+    "social" : [
+      {
+        "text" : "github",
+        "href" : "https://github.com/genagain"
+      },
+      {
+        "text" : "linkedin",
+        "href" : "https://www.linkedin.com/in/genohta"
+      },
+      {
+        "text" : "email",
+        "href" : "mailto:ohta.g@husky.neu.edu"
+      }
+    ],
     "projects" : {
       "list" : [
         "(1) capstone",
