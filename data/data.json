@@ -53,9 +53,9 @@
     },
     "error" : "command not found... type 'help' to see a list of available commands."
   },
-  "social" : {
-   "github" : "https://github.com/genagain",
-   "linkedin" : "https://www.linkedin.com/in/genohta",
-   "email" : "ohta.g@husky.neu.edu"
-  }
+  "social" : [
+   "https://github.com/genagain",
+   "https://www.linkedin.com/in/genohta",
+   "ohta.g@husky.neu.edu"
+  ]
 }
