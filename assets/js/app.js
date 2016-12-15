@@ -77,6 +77,8 @@ class App {
     } else if (userInput === 'projects') {
       this.printCommandResponseList(commands.projects.list)
 
+    } else if (userInput === 'social') {
+      this.printCommandResponseList(social)
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
 
