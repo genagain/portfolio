@@ -109,18 +109,23 @@ class App {
     this.dom.commands.appendChild(html)
   }
 
-  printCommandResponseList(arr) {
+  printCommandResponseList(input, arr) {
 
-    const ul = document.createElement('ul')
-    classes.add(ul, 'command__list')
+    const template = `
+      <li class="command">
+        <div class="command__input">${input}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${arr.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        <div>
+      </li>`
 
-    arr.forEach(item => {
-      const li = document.createElement('li')
-      li.innerHTML = item
-      ul.appendChild(li)
-    })
+    const html = new DOMParser()
+      .parseFromString(template, 'text/html')
+      .querySelector('.command')
 
-    this.printCommandResponse(ul.outerHTML)
+    this.dom.commands.appendChild(html)
   }
 
   static get KEY_UP() {
