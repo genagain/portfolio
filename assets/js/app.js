@@ -79,7 +79,8 @@ class App {
 
     } else if (userInput === 'social') {
       const { github, linkedin, email  } = social
-      this.printCommandResponse(email)
+      //this.printCommandResponse(email)
+      this.printCommandResponseSocial([github,linkedin])
 
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
@@ -117,6 +118,20 @@ class App {
     this.printCommandResponse(ul.outerHTML)
   }
 
+  printCommandResponseSocial(arr) {
+
+    let links = []
+    // Think about doing a map operation here
+    arr.forEach(item => {
+      const anchor = document.createElement('a')
+      anchor.innerHTML = item
+      anchor.href = item
+      links.push(anchor.outerHTML)
+    })
+
+    // create array of anchors with email
+    this.printCommandResponseList(links)
+  }
   static get KEY_UP() {
     return 38
   }
