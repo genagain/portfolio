@@ -28,7 +28,7 @@
         "It was the first web app any of us had ever deployed",
         "We made this app during our time at Launch Academy for a group project"
       ],
-      "tech-used" : [
+      "tech" : [
         "Ruby on Rails",
         "PostgreSQL",
         "Amazon S3",
