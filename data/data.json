@@ -65,6 +65,7 @@
       "3" : "/project/cloud-metric-backup-system",
       "4" : "/project/poster"
     },
-    "error" : "command not found... type 'help' to see a list of available commands."
+    "error" : "command not found... type 'help' to see a list of available commands.",
+    "help" : ["home", "about", "social", "projects", "clear", "commands"]
   }
 }
