@@ -14,9 +14,13 @@
     "frqnt-flyr" : {
       "title" : "Frqnt Flyr",
       "media" : {
-        "landing-page" : "../assets/img/frqnt-flyer-home.png",
-        "heroku-url" : "http://frqntflyr.herokuapp.com",
-        "github" : "https://github.com/MichaelSwartz/airlines"
+        "links" : [
+          {"url": "http://frqntflyr.herokuapp.com/", "title": "Live"},
+          {"url": "https://github.com/MichaelSwartz/airlines", "title": "Source Code"}
+        ],
+        "images" : [
+          { "src": "../assets/img/frqnt-flyer-home.png", "alt": "Frqnt Flyr Landing Page"}
+        ]
       },
       "content" : [
         "Frqnt Flyr is a web app that allows users to review airlines",
