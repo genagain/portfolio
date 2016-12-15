@@ -124,17 +124,14 @@ Medias Queries
 
 // these two rules will be moved later on
 // for better organization
-.command {
-	padding: 2px 0;
-	&:before {
-		content: '$';
-		display: inline-block;
-		margin-right: 8px;
-	}
+.command:before {
+	content: '$\00a0';
+	display: inline-block;
 }
 // these two rules will be moved later on
 // for better organization
-.command__list {
-	display: inline-block;
+.response__list {
+	display: block;
 	vertical-align: top;
+	margin-left: 2ch;
 }
