@@ -19,7 +19,7 @@
       },
       "content" : [
         "Frqnt Flyr is a web app that allows users to review airlines",
-        "Michael, Eric, David and I made this",
+        "Michael Swartz, Eric Grueter, David Tsang and I made this",
         "It was the first web app any of us had ever deployed",
         "We made this app during our time at Launch Academy for a group project",
         "We used the CarrierWave gem with Amazon S3 for file upload and incorporated pagination into a Ruby on Rails web app with a PostgresSQL database",
