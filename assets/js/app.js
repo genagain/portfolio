@@ -75,10 +75,16 @@ class App {
       framework.go(commands.projects[userInput])
 
     } else if (userInput === 'projects') {
-      this.printCommandResponseList(userInput, commands.projects.list)
+      this.printCommandResponseList(userInput, commands.projects.list, 'project')
 
     } else if (userInput === 'about') {
       this.printCommandResponse(userInput, commands.about)
+
+    } else if (userInput === 'social') {
+      this.printSocials(userInput, commands.social)
+
+    } else if (userInput === 'help' || userInput === 'commands') {
+      this.printCommandResponseList(userInput, commands.help, 'command__help-text')
 
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
@@ -99,20 +105,35 @@ class App {
     const template = `
       <li class="command">
         <div class="command__input">${input}</div>
-        <div class="command__output">${output}<div>
+        <div class="command__output">${output}</div>
       </li>`
 
     this.renderCommand(template)
   }
 
-  printCommandResponseList(input, arr) {
+  printCommandResponseList(input, arr, className) {
 
     const template = `
       <li class="command">
         <div class="command__input">${input}</div>
         <div class="command__output">
           <ul class="command__output--list">
-            ${arr.map(item => `<li>${item}</li>`).join('')}
+            ${arr.map(item => `<li class="${className}">${item}</li>`).join('')}
+          </ul>
+        </div>
+      </li>`
+
+    this.renderCommand(template)
+  }
+
+  printSocials(input, arr) {
+
+    const template = `
+      <li class="command">
+        <div class="command__input">${input}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${arr.map(link => `<li><a target="_blank" href="${link.href}">${link.text}</a></li>`).join('')}
           </ul>
         <div>
       </li>`
