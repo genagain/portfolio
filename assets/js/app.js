@@ -102,11 +102,7 @@ class App {
         <div class="command__output">${output}<div>
       </li>`
 
-    const html = new DOMParser()
-      .parseFromString(template, 'text/html')
-      .querySelector('.command')
-
-    this.dom.commands.appendChild(html)
+    this.renderCommand(template)
   }
 
   printCommandResponseList(input, arr) {
@@ -121,6 +117,10 @@ class App {
         <div>
       </li>`
 
+    this.renderCommand(template)
+  }
+
+  renderCommand(template) {
     const html = new DOMParser()
       .parseFromString(template, 'text/html')
       .querySelector('.command')
