@@ -65,7 +65,7 @@ class App {
 
     this.index = config.hist.length
 
-    const { commands } = window._data
+    const { commands, social } = window._data
 
     if (userInput === 'about' || userInput === 'home') {
       // route to appropriate section
@@ -78,14 +78,18 @@ class App {
       this.printCommandResponseList(commands.projects.list)
 
     } else if (userInput === 'social') {
-      this.printCommandResponseList(social)
+      const email = social.email
+      this.printCommandResponse(email)
+
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
 
     } else if (userInput === '') {
       this.printCommandResponse('')
+
     } else {
       this.printCommandResponse(commands.error)
+
     }
 
     this.dom.input.value = ''
