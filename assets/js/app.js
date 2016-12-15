@@ -78,7 +78,7 @@ class App {
       this.printCommandResponseList(commands.projects.list)
 
     } else if (userInput === 'social') {
-      const email = social.email
+      const { github, linkedin, email  } = social
       this.printCommandResponse(email)
 
     } else if (userInput === 'clear') {
