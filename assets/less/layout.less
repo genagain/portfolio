@@ -124,17 +124,21 @@ Medias Queries
 
 // these two rules will be moved later on
 // for better organization
-.segment {
-	padding: 2px 0;
-	&:before {
-		content: '$';
-		display: inline-block;
-		margin-right: 8px;
-	}
+.command:before {
+	content: '$';
+	display: inline-block;
+}
+
+.command__input {
+	display: inline-block;
 }
 // these two rules will be moved later on
 // for better organization
-.segment__list {
+.command__output {
+	margin-left: 2ch;
+}
+
+.command__help-text {
 	display: inline-block;
-	vertical-align: top;
+	margin-right: 2ch;
 }

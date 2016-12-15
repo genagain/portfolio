@@ -43,7 +43,21 @@
   },
   "commands" : {
     "home" : "/",
-    "about" : "/about/",
+    "about" : "this is my bio.",
+    "social" : [
+      {
+        "text" : "github",
+        "href" : "https://github.com/genagain"
+      },
+      {
+        "text" : "linkedin",
+        "href" : "https://www.linkedin.com/in/genohta"
+      },
+      {
+        "text" : "email",
+        "href" : "mailto:ohta.g@husky.neu.edu"
+      }
+    ],
     "projects" : {
       "list" : [
         "(1) capstone",
@@ -56,6 +70,7 @@
       "3" : "/project/cloud-metric-backup-system",
       "4" : "/project/poster"
     },
-    "error" : "command not found... type 'help' to see a list of available commands."
+    "error" : "command not found... type 'help' to see a list of available commands.",
+    "help" : ["home", "about", "social", "projects", "clear", "commands"]
   }
 }

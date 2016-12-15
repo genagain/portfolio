@@ -67,7 +67,7 @@ class App {
 
     const { commands } = window._data
 
-    if (userInput === 'about' || userInput === 'home') {
+    if (userInput === 'home') {
       // route to appropriate section
       framework.go(commands[userInput])
 
@@ -75,40 +75,78 @@ class App {
       framework.go(commands.projects[userInput])
 
     } else if (userInput === 'projects') {
-      this.printCommandResponseList(commands.projects.list)
+      this.printCommandResponseList(userInput, commands.projects.list, 'project')
+
+    } else if (userInput === 'about') {
+      this.printCommandResponse(userInput, commands.about)
+
+    } else if (userInput === 'social') {
+      this.printSocials(userInput, commands.social)
+
+    } else if (userInput === 'help' || userInput === 'commands') {
+      this.printCommandResponseList(userInput, commands.help, 'command__help-text')
 
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
 
     } else if (userInput === '') {
       this.printCommandResponse('')
+
     } else {
-      this.printCommandResponse(commands.error)
+      this.printCommandResponse(userInput, commands.error)
     }
 
     this.dom.input.value = ''
     this.dom.input.focus()
   }
 
-  printCommandResponse(response) {
-    const li = document.createElement('li')
-    li.innerHTML = response
-    classes.add(li, 'segment')
-    this.dom.commands.appendChild(li)
+  printCommandResponse(input, output) {
+
+    const template = `
+      <li class="command">
+        <div class="command__input">${input}</div>
+        <div class="command__output">${output}</div>
+      </li>`
+
+    this.renderCommand(template)
   }
 
-  printCommandResponseList(arr) {
+  printCommandResponseList(input, arr, className) {
 
-    const ul = document.createElement('ul')
-    classes.add(ul, 'segment__list')
+    const template = `
+      <li class="command">
+        <div class="command__input">${input}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${arr.map(item => `<li class="${className}">${item}</li>`).join('')}
+          </ul>
+        </div>
+      </li>`
 
-    arr.forEach(item => {
-      const li = document.createElement('li')
-      li.innerHTML = item
-      ul.appendChild(li)
-    })
+    this.renderCommand(template)
+  }
 
-    this.printCommandResponse(ul.outerHTML)
+  printSocials(input, arr) {
+
+    const template = `
+      <li class="command">
+        <div class="command__input">${input}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${arr.map(link => `<li><a target="_blank" href="${link.href}">${link.text}</a></li>`).join('')}
+          </ul>
+        <div>
+      </li>`
+
+    this.renderCommand(template)
+  }
+
+  renderCommand(template) {
+    const html = new DOMParser()
+      .parseFromString(template, 'text/html')
+      .querySelector('.command')
+
+    this.dom.commands.appendChild(html)
   }
 
   static get KEY_UP() {
