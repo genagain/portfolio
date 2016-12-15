@@ -125,12 +125,16 @@ Medias Queries
 // these two rules will be moved later on
 // for better organization
 .command:before {
-	content: '$\00a0';
+	content: '$';
+	display: inline-block;
+}
+
+.command__input {
 	display: inline-block;
 }
 // these two rules will be moved later on
 // for better organization
-.response__list {
+.command__output--list {
 	display: block;
 	vertical-align: top;
 	margin-left: 2ch;
