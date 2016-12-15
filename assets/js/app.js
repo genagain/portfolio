@@ -118,15 +118,14 @@ class App {
 
   printCommandResponseSocial(arr) {
 
-    let info = []
-    arr.forEach(item => {
+    const info = arr.map(item => {
       if (item.includes('http')) {
         const anchor = document.createElement('a')
         anchor.innerHTML = item
         anchor.href = item
-        info.push(anchor.outerHTML)
+        return anchor.outerHTML
       } else {
-        info.push(item)
+        return item
       }
     })
 
