@@ -75,10 +75,10 @@ class App {
       framework.go(commands.projects[userInput])
 
     } else if (userInput === 'projects') {
-      this.printCommandResponseList(commands.projects.list)
+      this.printCommandResponseList(userInput, commands.projects.list)
 
     } else if (userInput === 'about') {
-      this.printCommandResponse(commands.about)
+      this.printCommandResponse(userInput, commands.about)
 
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
@@ -87,18 +87,26 @@ class App {
       this.printCommandResponse('')
 
     } else {
-      this.printCommandResponse(commands.error)
+      this.printCommandResponse(userInput, commands.error)
     }
 
     this.dom.input.value = ''
     this.dom.input.focus()
   }
 
-  printCommandResponse(response) {
-    const li = document.createElement('li')
-    li.innerHTML = response
-    classes.add(li, 'command')
-    this.dom.commands.appendChild(li)
+  printCommandResponse(input, output) {
+
+    const template = `
+      <li class="command">
+        <div class="command__input">${input}</div>
+        <div class="command__output">${output}<div>
+      </li>`
+
+    const html = new DOMParser()
+      .parseFromString(template, 'text/html')
+      .querySelector('.command')
+
+    this.dom.commands.appendChild(html)
   }
 
   printCommandResponseList(arr) {
