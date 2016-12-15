@@ -85,7 +85,7 @@ class App {
 
     } else if (userInput === '') {
       this.printCommandResponse('')
-      
+
     } else {
       this.printCommandResponse(commands.error)
     }
@@ -97,14 +97,14 @@ class App {
   printCommandResponse(response) {
     const li = document.createElement('li')
     li.innerHTML = response
-    classes.add(li, 'segment')
+    classes.add(li, 'command')
     this.dom.commands.appendChild(li)
   }
 
   printCommandResponseList(arr) {
 
     const ul = document.createElement('ul')
-    classes.add(ul, 'segment__list')
+    classes.add(ul, 'command__list')
 
     arr.forEach(item => {
       const li = document.createElement('li')
