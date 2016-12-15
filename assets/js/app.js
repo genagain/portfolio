@@ -78,9 +78,7 @@ class App {
       this.printCommandResponseList(commands.projects.list)
 
     } else if (userInput === 'social') {
-      const { github, linkedin, email  } = social
-      //this.printCommandResponse(email)
-      this.printCommandResponseSocial([github,linkedin])
+      this.printCommandResponseSocial(social)
 
     } else if (userInput === 'clear') {
       this.dom.commands.innerHTML = ''
@@ -120,17 +118,19 @@ class App {
 
   printCommandResponseSocial(arr) {
 
-    let links = []
-    // Think about doing a map operation here
+    let info = []
     arr.forEach(item => {
-      const anchor = document.createElement('a')
-      anchor.innerHTML = item
-      anchor.href = item
-      links.push(anchor.outerHTML)
+      if (item.includes('http')) {
+        const anchor = document.createElement('a')
+        anchor.innerHTML = item
+        anchor.href = item
+        info.push(anchor.outerHTML)
+      } else {
+        info.push(item)
+      }
     })
 
-    // create array of anchors with email
-    this.printCommandResponseList(links)
+    this.printCommandResponseList(info)
   }
   static get KEY_UP() {
     return 38
