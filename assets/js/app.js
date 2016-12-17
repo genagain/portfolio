@@ -1,5 +1,5 @@
 import framework from 'framework'
-import domselect from 'dom-select'
+// import $ from 'dom-select'
 import utils from 'utils'
 import queryDom from 'query-dom-components'
 import config from 'config'
@@ -28,8 +28,6 @@ class App {
 
   addEvents() {
 
-    utils.biggie.addRoutingEL(domselect.all('nav a'))
-
     // listen to submit event
     events.on(this.dom.form, 'submit', this.onSubmit)
     events.on(this.dom.input, 'keydown', this.onKeyPress)
@@ -40,20 +38,20 @@ class App {
     e.preventDefault()
 
     const userInput = this.dom.input.value.trim()
-    userInput !== '' ? config.hist.push(userInput) : null
+    userInput.length !== 0 ? config.hist.push(userInput) : null
+
+    this.dom.input.value = ''
+    this.dom.input.focus()
 
     this.index = config.hist.length
 
     this.handleUserInput(userInput)
-
-    this.dom.input.value = ''
-    this.dom.input.focus()
   }
 
   handleUserInput(userInput) {
 
     const { commands } = window._data
-    const command = commands.hasOwnProperty(userInput) ? commands[userInput] : userInput.length === 0 ? commands["blank"] : commands["error"]
+    const command = commands.hasOwnProperty(userInput) ? commands[userInput] : userInput.length === 0 ? commands.blank : commands.error
 
     switch(command.type) {
       case 'route':
@@ -66,11 +64,11 @@ class App {
         break
 
       case 'function':
-        this.render(this[command.data]())
+        !command.template ? this[command.data]() : this.render(this[command.data]())
         break
 
       default:
-        this.render(this.commandTemplate(userInput, commands.error))
+        this.render(this.errorTemplate(userInput, commands.error))
     }
   }
 
@@ -100,6 +98,18 @@ class App {
         <div class="command__output">
           <ul class="command__output--list">
             ${output.map(item => `<li class="command__output--list-item">${item}</li>`).join('')}
+          </ul>
+        </div>
+      </li>`
+  }
+
+  errorTemplate(userInput, output) {
+    return `
+      <li class="command">
+        <div class="command__input">${userInput}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${output.map(item => `<li class="command__output--list-item">-oops '${userInput}': ${item}</li>`).join('')}
           </ul>
         </div>
       </li>`
