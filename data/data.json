@@ -101,9 +101,17 @@
       "type" : "route",
       "data" : "/project/poster"
     },
+    "hello" : {
+      "type" : "static",
+      "data" : ["hello there! welcome to my portfolio. do you need any help?"]
+    },
+    "yes" : {
+      "type" : "static",
+      "data" : ["&nbsp;", "commands:", "&nbsp;", "&nbsp;&nbsp;home", "&nbsp;&nbsp;about", "&nbsp;&nbsp;social", "&nbsp;&nbsp;projects", "&nbsp;&nbsp;resume", "&nbsp;&nbsp;clear"]
+    },
     "help" : {
       "type" : "static",
-      "data" : ["home", "about", "social", "projects", "clear", "commands"]
+      "data" : ["&nbsp;", "commands:", "&nbsp;", "&nbsp;&nbsp;home", "&nbsp;&nbsp;about", "&nbsp;&nbsp;social", "&nbsp;&nbsp;projects", "&nbsp;&nbsp;resume", "&nbsp;&nbsp;clear"]
     },
     "clear" : {
       "type" : "function",
@@ -111,8 +119,9 @@
     },
     "blank" : {
       "type" : "function",
-      "data" : "addBlankSegment"
+      "template" : true,
+      "data" : "blankTemplate"
     },
-    "error" : ["command not found... type 'help' to see a list of available commands."]
+    "error" : ["command not found... try entering 'help'"]
   }
 }

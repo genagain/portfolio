@@ -1,7 +1,5 @@
 import framework from 'framework'
-import domselect from 'dom-select'
 import utils from 'utils'
-import queryDom from 'query-dom-components'
 import config from 'config'
 import events from 'dom-event'
 import classes from 'dom-classes'
@@ -10,10 +8,10 @@ class App {
 
   constructor(opt = {}) {
 
-    this.dom = queryDom({ el: config.body })
-
     this.onSubmit = this.onSubmit.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
+    this.updateDisplay = this.updateDisplay.bind(this)
+    this.addSpaceToDisplay = this.addSpaceToDisplay.bind(this)
 
     this.init()
   }
@@ -23,37 +21,39 @@ class App {
     this.addEvents()
     framework.init()
 
-    this.dom.input.focus()
+    config.dom.input.focus()
   }
 
   addEvents() {
 
-    utils.biggie.addRoutingEL(domselect.all('nav a'))
-
     // listen to submit event
-    events.on(this.dom.form, 'submit', this.onSubmit)
-    events.on(this.dom.input, 'keydown', this.onKeyPress)
+    events.on(config.body, 'click', _ => config.dom.input.focus())
+    events.on(config.dom.form, 'submit', this.onSubmit)
+    events.on(config.dom.input, 'keydown', this.onKeyPress)
+    events.on(config.dom.input, 'keyup', this.addSpaceToDisplay)
+    events.on(config.dom.input, 'input', this.updateDisplay)
   }
 
   onSubmit(e) {
 
     e.preventDefault()
 
-    const userInput = this.dom.input.value.trim()
-    userInput !== '' ? config.hist.push(userInput) : null
+    const userInput = config.dom.input.value.trim()
+    userInput.length !== 0 ? config.hist.push(userInput) : null
+
+    config.dom.input.value = ''
+    config.dom.display.innerText = ''
+    config.dom.input.focus()
 
     this.index = config.hist.length
 
     this.handleUserInput(userInput)
-
-    this.dom.input.value = ''
-    this.dom.input.focus()
   }
 
   handleUserInput(userInput) {
 
     const { commands } = window._data
-    const command = commands.hasOwnProperty(userInput) ? commands[userInput] : userInput.length === 0 ? commands["blank"] : commands["error"]
+    const command = commands.hasOwnProperty(userInput) ? commands[userInput] : userInput.length === 0 ? commands.blank : commands.error
 
     switch(command.type) {
       case 'route':
@@ -62,15 +62,15 @@ class App {
 
       case 'static':
         const output = command.data[0].href ? command.data.map(this.toAnchor) : command.data
-        this.printCommand(userInput, output)
+        this.render(this.commandTemplate(userInput, output))
         break
 
       case 'function':
-        this[command.data]()
+        !command.template ? this[command.data]() : this.render(this[command.data]())
         break
 
       default:
-        this.printCommand(userInput, commands.error)
+        this.render(this.errorTemplate(userInput, commands.error))
     }
   }
 
@@ -78,22 +78,23 @@ class App {
     return `<a target="_blank" href="${link.href}">${link.text}</a>`
   }
 
-  clearDisplay() {
-    this.dom.commands.innerHTML = ''
+  render(template) {
+    const html = new DOMParser()
+      .parseFromString(template, 'text/html')
+      .querySelector('.command')
+
+    config.dom.commands.appendChild(html)
   }
 
-  addBlankSegment(userInput) {
-    const template = `
+  blankTemplate() {
+    return `
       <li class="command">
         <div class="command__input"></div>
       </li>`
-
-    this.render(template)
   }
 
-  printCommand(userInput, output) {
-
-    const template = `
+  commandTemplate(userInput, output) {
+    return `
       <li class="command">
         <div class="command__input">${userInput}</div>
         <div class="command__output">
@@ -102,16 +103,32 @@ class App {
           </ul>
         </div>
       </li>`
-
-    this.render(template)
   }
 
-  render(template) {
-    const html = new DOMParser()
-      .parseFromString(template, 'text/html')
-      .querySelector('.command')
+  errorTemplate(userInput, output) {
+    return `
+      <li class="command">
+        <div class="command__input">${userInput}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${output.map(item => `<li class="command__output--list-item">-oops '${userInput}': ${item}</li>`).join('')}
+          </ul>
+        </div>
+      </li>`
+  }
 
-    this.dom.commands.appendChild(html)
+  clearDisplay() {
+    config.dom.commands.innerHTML = ''
+  }
+
+  updateDisplay() {
+    config.dom.display.innerHTML = config.dom.input.value
+  }
+
+  addSpaceToDisplay(e) {
+    if (e.keyCode !== App.SPACE) return
+
+    config.dom.display.innerHTML += '<span class="prompt__form--spacer"></span>'
   }
 
   onKeyPress(e) {
@@ -120,27 +137,57 @@ class App {
       case App.KEY_UP:
         if (this.index > 0 && this.index <= config.hist.length) {
           this.index -= 1
-          this.dom.input.value = config.hist[this.index]
+          config.dom.input.value = config.hist[this.index]
+          this.updateDisplay()
         }
         break
 
       case App.KEY_DOWN:
         if (this.index >= 0 && this.index < config.hist.length) {
           this.index += 1
-          this.dom.input.value = this.index === config.hist.length ? '' : this.dom.input.value = config.hist[this.index]
+          config.dom.input.value = this.index === config.hist.length ? '' : config.dom.input.value = config.hist[this.index]
+          this.updateDisplay()
         }
+        break
+
+      case App.KEY_LEFT:
+        return false
+        break
+
+      case App.KEY_RIGHT:
+        return false
+        break
+
+      case App.TAB:
+        return false
         break
 
       default: break
     }
   }
 
+  static get KEY_LEFT() {
+    return 37
+  }
+
   static get KEY_UP() {
     return 38
   }
 
+  static get KEY_RIGHT() {
+    return 39
+  }
+
   static get KEY_DOWN() {
     return 40
+  }
+
+  static get TAB() {
+    return 9
+  }
+
+  static get SPACE() {
+    return 32
   }
 }
 

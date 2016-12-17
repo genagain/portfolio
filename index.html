@@ -15,22 +15,24 @@
 		<link rel="stylesheet" href="/build/app.min.css">
 	</head>
 	<body>
-		<nav style="position: relative; z-index: 1; padding: 20px;">
+		<nav class="prompt">
 
-			<ul class="js-commands"></ul>
+			<ul class="prompt__commands js-commands"></ul>
 
-			<form class="js-form" style="margin-top: 20px;">
-				<input type="textarea" class="js-input">
-        <button type="submit">Submit</button>
+			<form class="prompt__form js-form">
+				<span class="prompt__form--display js-display"></span>
+				<span class="prompt__form--cursor"></span>
+				<input type="textarea" class="prompt__form--input js-input">
+        <button type="submit" class="prompt__form--submit">Submit</button>
 			</form>
+
+			<div class="prompt__bg js-prompt"></div>
 
 		</nav>
 
     <!-- Data added here in main for sections-->
 		<main></main>
-		<footer>
-			<p>Made w/ <a href="https://github.com/bigwheel-framework/bigwheel" target="_blank">Bigwheel</a>. Checkout on <a href="https://github.com/BaptisteBriel/biggie" target="_blank">Github</a>.</p>
-		</footer>
+
 		<script src="/build/app.js"></script>
 	</body>
 </html>
