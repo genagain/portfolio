@@ -26,7 +26,7 @@ class Default {
 
     dataAdded() {
 
-        this.ui = query({ el: this.page })
+        this.dom = query({ el: this.page })
 
         this.a = $.all('a', this.page)
 

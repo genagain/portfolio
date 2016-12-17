@@ -118,45 +118,51 @@ Medias Queries
 	z-index: 1;
 	padding: 20px;
 	top: 0; left: 0; bottom: 0;
-	.size(50%, 100%);
-	background-color: @black;
-}
+	.size(40%, 100%);
 
-.prompt__form {
-	position: relative;
-
-	&--input, &--submit {
-		position: absolute;
-		left: 0;
-		opacity: 0;
-		pointer-events: none;
+	&__bg {
+		.fixed();
+		z-index: -1;
+		background-color: @black;
+		transform-origin: left;
 	}
 
-	&--display {
+	&__form {
+		position: relative;
 
-		&:before {
-			content: '$';
-			display: inline-block;
-			margin-right: 1ch;
+		&--input, &--submit {
+			position: absolute;
+			left: 0;
+			opacity: 0;
+			pointer-events: none;
 		}
-	}
 
-	&--spacer {
-		display: inline-block;
-		width: 1ch;
-		height: 1.7ch;
-		vertical-align: baseline;
-		margin: 0 0 -1px -1ch;
-	}
+		&--display {
 
-	&--cursor {
-		display: inline-block;
-		width: 1ch;
-		height: 1.7ch;
-		background-color: @white;
-		vertical-align: baseline;
-		margin: 0 0 -1px -1ch;
-		visibility: hidden;
-		animation: blink 1s steps(2,end) infinite;
+			&:before {
+				content: '$';
+				display: inline-block;
+				margin-right: 1ch;
+			}
+		}
+
+		&--spacer {
+			display: inline-block;
+			width: 1ch;
+			height: 1.7ch;
+			vertical-align: baseline;
+			margin: 0 0 -1px -1ch;
+		}
+
+		&--cursor {
+			display: inline-block;
+			width: 1ch;
+			height: 1.7ch;
+			background-color: @white;
+			vertical-align: baseline;
+			margin: 0 0 -1px -1ch;
+			visibility: hidden;
+			animation: blink 1s steps(2,end) infinite;
+		}
 	}
 }

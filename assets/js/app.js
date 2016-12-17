@@ -1,6 +1,5 @@
 import framework from 'framework'
 import utils from 'utils'
-import queryDom from 'query-dom-components'
 import config from 'config'
 import events from 'dom-event'
 import classes from 'dom-classes'
@@ -8,8 +7,6 @@ import classes from 'dom-classes'
 class App {
 
   constructor(opt = {}) {
-
-    this.dom = queryDom({ el: config.body })
 
     this.onSubmit = this.onSubmit.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
@@ -24,29 +21,29 @@ class App {
     this.addEvents()
     framework.init()
 
-    this.dom.input.focus()
+    config.dom.input.focus()
   }
 
   addEvents() {
 
     // listen to submit event
-    events.on(config.body, 'click', _ => this.dom.input.focus())
-    events.on(this.dom.form, 'submit', this.onSubmit)
-    events.on(this.dom.input, 'keydown', this.onKeyPress)
-    events.on(this.dom.input, 'keyup', this.addSpaceToDisplay)
-    events.on(this.dom.input, 'input', this.updateDisplay)
+    events.on(config.body, 'click', _ => config.dom.input.focus())
+    events.on(config.dom.form, 'submit', this.onSubmit)
+    events.on(config.dom.input, 'keydown', this.onKeyPress)
+    events.on(config.dom.input, 'keyup', this.addSpaceToDisplay)
+    events.on(config.dom.input, 'input', this.updateDisplay)
   }
 
   onSubmit(e) {
 
     e.preventDefault()
 
-    const userInput = this.dom.input.value.trim()
+    const userInput = config.dom.input.value.trim()
     userInput.length !== 0 ? config.hist.push(userInput) : null
 
-    this.dom.input.value = ''
-    this.dom.display.innerText = ''
-    this.dom.input.focus()
+    config.dom.input.value = ''
+    config.dom.display.innerText = ''
+    config.dom.input.focus()
 
     this.index = config.hist.length
 
@@ -86,7 +83,7 @@ class App {
       .parseFromString(template, 'text/html')
       .querySelector('.command')
 
-    this.dom.commands.appendChild(html)
+    config.dom.commands.appendChild(html)
   }
 
   blankTemplate() {
@@ -121,17 +118,17 @@ class App {
   }
 
   clearDisplay() {
-    this.dom.commands.innerHTML = ''
+    config.dom.commands.innerHTML = ''
   }
 
   updateDisplay() {
-    this.dom.display.innerHTML = this.dom.input.value
+    config.dom.display.innerHTML = config.dom.input.value
   }
 
   addSpaceToDisplay(e) {
     if (e.keyCode !== App.SPACE) return
 
-    this.dom.display.innerHTML += '<span class="prompt__form--spacer"></span>'
+    config.dom.display.innerHTML += '<span class="prompt__form--spacer"></span>'
   }
 
   onKeyPress(e) {
@@ -140,7 +137,7 @@ class App {
       case App.KEY_UP:
         if (this.index > 0 && this.index <= config.hist.length) {
           this.index -= 1
-          this.dom.input.value = config.hist[this.index]
+          config.dom.input.value = config.hist[this.index]
           this.updateDisplay()
         }
         break
@@ -148,7 +145,7 @@ class App {
       case App.KEY_DOWN:
         if (this.index >= 0 && this.index < config.hist.length) {
           this.index += 1
-          this.dom.input.value = this.index === config.hist.length ? '' : this.dom.input.value = config.hist[this.index]
+          config.dom.input.value = this.index === config.hist.length ? '' : config.dom.input.value = config.hist[this.index]
           this.updateDisplay()
         }
         break
