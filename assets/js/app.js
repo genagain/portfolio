@@ -35,6 +35,85 @@ class App {
     events.on(this.dom.input, 'keydown', this.onKeyPress)
   }
 
+  onSubmit(e) {
+
+    e.preventDefault()
+
+    const userInput = this.dom.input.value.trim()
+    userInput !== '' ? config.hist.push(userInput) : null
+
+    this.index = config.hist.length
+
+    this.handleUserInput(userInput)
+
+    this.dom.input.value = ''
+    this.dom.input.focus()
+  }
+
+  handleUserInput(userInput) {
+
+    const { commands } = window._data
+    const command = commands.hasOwnProperty(userInput) ? commands[userInput] : userInput.length === 0 ? commands["blank"] : commands["error"]
+
+    switch(command.type) {
+      case 'route':
+        framework.go(command.data)
+        break
+
+      case 'static':
+        const output = command.data[0].href ? command.data.map(this.toAnchor) : command.data
+        this.printCommand(userInput, output)
+        break
+
+      case 'function':
+        this[command.data]()
+        break
+
+      default:
+        this.printCommand(userInput, commands.error)
+    }
+  }
+
+  toAnchor(link) {
+    return `<a target="_blank" href="${link.href}">${link.text}</a>`
+  }
+
+  clearDisplay() {
+    this.dom.commands.innerHTML = ''
+  }
+
+  addBlankSegment(userInput) {
+    const template = `
+      <li class="command">
+        <div class="command__input"></div>
+      </li>`
+
+    this.render(template)
+  }
+
+  printCommand(userInput, output) {
+
+    const template = `
+      <li class="command">
+        <div class="command__input">${userInput}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${output.map(item => `<li class="command__output--list-item">${item}</li>`).join('')}
+          </ul>
+        </div>
+      </li>`
+
+    this.render(template)
+  }
+
+  render(template) {
+    const html = new DOMParser()
+      .parseFromString(template, 'text/html')
+      .querySelector('.command')
+
+    this.dom.commands.appendChild(html)
+  }
+
   onKeyPress(e) {
 
     switch(e.keyCode) {
@@ -54,99 +133,6 @@ class App {
 
       default: break
     }
-  }
-
-  onSubmit(e) {
-
-    e.preventDefault()
-
-    const userInput = this.dom.input.value.trim()
-    userInput !== '' ? config.hist.push(userInput) : null
-
-    this.index = config.hist.length
-
-    const { commands } = window._data
-
-    if (userInput === 'home') {
-      // route to appropriate section
-      framework.go(commands[userInput])
-
-    } else if (userInput.match(/([1-4])/) && userInput.length === 1) {
-      framework.go(commands.projects[userInput])
-
-    } else if (userInput === 'projects') {
-      this.printCommandResponseList(userInput, commands.projects.list, 'project')
-
-    } else if (userInput === 'about') {
-      this.printCommandResponse(userInput, commands.about)
-
-    } else if (userInput === 'social') {
-      this.printSocials(userInput, commands.social)
-
-    } else if (userInput === 'help' || userInput === 'commands') {
-      this.printCommandResponseList(userInput, commands.help, 'command__help-text')
-
-    } else if (userInput === 'clear') {
-      this.dom.commands.innerHTML = ''
-
-    } else if (userInput === '') {
-      this.printCommandResponse('')
-
-    } else {
-      this.printCommandResponse(userInput, commands.error)
-    }
-
-    this.dom.input.value = ''
-    this.dom.input.focus()
-  }
-
-  printCommandResponse(input, output) {
-
-    const template = `
-      <li class="command">
-        <div class="command__input">${input}</div>
-        <div class="command__output">${output}</div>
-      </li>`
-
-    this.renderCommand(template)
-  }
-
-  printCommandResponseList(input, arr, className) {
-
-    const template = `
-      <li class="command">
-        <div class="command__input">${input}</div>
-        <div class="command__output">
-          <ul class="command__output--list">
-            ${arr.map(item => `<li class="${className}">${item}</li>`).join('')}
-          </ul>
-        </div>
-      </li>`
-
-    this.renderCommand(template)
-  }
-
-  printSocials(input, arr) {
-
-    const template = `
-      <li class="command">
-        <div class="command__input">${input}</div>
-        <div class="command__output">
-          <ul class="command__output--list">
-            ${arr.map(link => `<li><a target="_blank" href="${link.href}">${link.text}</a></li>`).join('')}
-          </ul>
-        <div>
-      </li>`
-
-    this.renderCommand(template)
-  }
-
-  renderCommand(template) {
-    const html = new DOMParser()
-      .parseFromString(template, 'text/html')
-      .querySelector('.command')
-
-    this.dom.commands.appendChild(html)
   }
 
   static get KEY_UP() {

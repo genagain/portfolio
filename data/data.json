@@ -96,6 +96,14 @@
       "type" : "static",
       "data" : ["home", "about", "social", "projects", "clear", "commands"]
     },
-    "error" : "command not found... type 'help' to see a list of available commands."
+    "clear" : {
+      "type" : "function",
+      "data" : "clearDisplay"
+    },
+    "blank" : {
+      "type" : "function",
+      "data" : "addBlankSegment"
+    },
+    "error" : ["command not found... type 'help' to see a list of available commands."]
   }
 }
