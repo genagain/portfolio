@@ -67,6 +67,15 @@
         }
       ]
     },
+    "resume" : {
+      "type" : "static",
+      "data" : [
+        {
+          "text" : "view pdf",
+          "href" : "#0"
+        }
+      ]
+    },
     "projects" : {
       "type" : "static",
       "data" : [
