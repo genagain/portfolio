@@ -7,7 +7,7 @@ see https://github.com/bigwheel-framework/documentation/blob/master/quickstart.m
 module.exports = bigwheel((done) => {
 	done({
 		// https://github.com/bigwheel-framework/documentation/blob/master/misc.md#overlap
-		overlap: false,
+		overlap: true,
 		// https://github.com/bigwheel-framework/documentation/blob/master/routes-special.md#initsection
 		initSection: require('./sections/preloader'),
 		routes: require('./routes')
