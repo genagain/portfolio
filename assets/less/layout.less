@@ -19,8 +19,8 @@
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-html,
-body{
+html, body {
+	height: 100%;
 	overflow: hidden;
 }
 
@@ -29,6 +29,9 @@ html {
 }
 
 body {
+	background: @grey-dark;
+	color: @white;
+
 	&.is-loaded {
 		footer{
 			opacity: 1;
@@ -47,6 +50,7 @@ View
 main {
 	.fixed();
 	.size(100%,100%);
+	z-index: 2;
 
 	.page {
 		.fixed();
@@ -67,32 +71,6 @@ Utils
 	&__item {
 		display: table-cell;
 		vertical-align: middle
-	}
-}
-
-/* -----
-Footer
------ */
-footer {
-	position: fixed; bottom: 0; right: 0; left: 0;
-	display: block;
-	text-align: center;
-	.size(100%,50px);
-	margin-bottom: 1rem;
-	z-index: 3;
-	opacity: 0;
-	transition: opacity .7s @easeOutExpo;
-
-	p {
-		color: @grey-light;
-
-		a {
-			color: @grey-dark;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
 	}
 }
 
@@ -122,8 +100,6 @@ Medias Queries
 @import "import/_medias.less";
 
 
-// these two rules will be moved later on
-// for better organization
 .command:before {
 	content: '$';
 	display: inline-block;
@@ -132,8 +108,55 @@ Medias Queries
 .command__input {
 	display: inline-block;
 }
-// these two rules will be moved later on
-// for better organization
+
 .command__output {
 	margin-left: 2ch;
+}
+
+.prompt {
+	position: absolute;
+	z-index: 1;
+	padding: 20px;
+	top: 0; left: 0; bottom: 0;
+	.size(50%, 100%);
+	background-color: @black;
+}
+
+.prompt__form {
+	position: relative;
+
+	&--input, &--submit {
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&--display {
+
+		&:before {
+			content: '$';
+			display: inline-block;
+			margin-right: 1ch;
+		}
+	}
+
+	&--spacer {
+		display: inline-block;
+		width: 1ch;
+		height: 1.7ch;
+		vertical-align: baseline;
+		margin: 0 0 -1px -1ch;
+	}
+
+	&--cursor {
+		display: inline-block;
+		width: 1ch;
+		height: 1.7ch;
+		background-color: @white;
+		vertical-align: baseline;
+		margin: 0 0 -1px -1ch;
+		visibility: hidden;
+		animation: blink 1s steps(2,end) infinite;
+	}
 }

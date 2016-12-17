@@ -13,6 +13,8 @@ class App {
 
     this.onSubmit = this.onSubmit.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
+    this.updateDisplay = this.updateDisplay.bind(this)
+    this.addSpaceToDisplay = this.addSpaceToDisplay.bind(this)
 
     this.init()
   }
@@ -31,6 +33,8 @@ class App {
     events.on(config.body, 'click', _ => this.dom.input.focus())
     events.on(this.dom.form, 'submit', this.onSubmit)
     events.on(this.dom.input, 'keydown', this.onKeyPress)
+    events.on(this.dom.input, 'keyup', this.addSpaceToDisplay)
+    events.on(this.dom.input, 'input', this.updateDisplay)
   }
 
   onSubmit(e) {
@@ -41,6 +45,7 @@ class App {
     userInput.length !== 0 ? config.hist.push(userInput) : null
 
     this.dom.input.value = ''
+    this.dom.display.innerText = ''
     this.dom.input.focus()
 
     this.index = config.hist.length
@@ -119,6 +124,16 @@ class App {
     this.dom.commands.innerHTML = ''
   }
 
+  updateDisplay() {
+    this.dom.display.innerHTML = this.dom.input.value
+  }
+
+  addSpaceToDisplay(e) {
+    if (e.keyCode !== App.SPACE) return
+
+    this.dom.display.innerHTML += '<span class="prompt__form--spacer"></span>'
+  }
+
   onKeyPress(e) {
 
     switch(e.keyCode) {
@@ -126,6 +141,7 @@ class App {
         if (this.index > 0 && this.index <= config.hist.length) {
           this.index -= 1
           this.dom.input.value = config.hist[this.index]
+          this.updateDisplay()
         }
         break
 
@@ -133,19 +149,36 @@ class App {
         if (this.index >= 0 && this.index < config.hist.length) {
           this.index += 1
           this.dom.input.value = this.index === config.hist.length ? '' : this.dom.input.value = config.hist[this.index]
+          this.updateDisplay()
         }
         break
 
+      case App.KEY_LEFT:
+        return false
+        break
+
+      case App.KEY_RIGHT:
+        return false
+        break
+
       case App.TAB:
-        e.preventDefault()
+        return false
         break
 
       default: break
     }
   }
 
+  static get KEY_LEFT() {
+    return 37
+  }
+
   static get KEY_UP() {
     return 38
+  }
+
+  static get KEY_RIGHT() {
+    return 39
   }
 
   static get KEY_DOWN() {
@@ -154,6 +187,10 @@ class App {
 
   static get TAB() {
     return 9
+  }
+
+  static get SPACE() {
+    return 32
   }
 }
 
