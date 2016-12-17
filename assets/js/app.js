@@ -1,5 +1,4 @@
 import framework from 'framework'
-// import $ from 'dom-select'
 import utils from 'utils'
 import queryDom from 'query-dom-components'
 import config from 'config'
