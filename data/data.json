@@ -42,35 +42,77 @@
     }
   },
   "commands" : {
-    "home" : "/",
-    "about" : "this is my bio.",
-    "social" : [
-      {
-        "text" : "github",
-        "href" : "https://github.com/genagain"
-      },
-      {
-        "text" : "linkedin",
-        "href" : "https://www.linkedin.com/in/genohta"
-      },
-      {
-        "text" : "email",
-        "href" : "mailto:ohta.g@husky.neu.edu"
-      }
-    ],
+    "home" : {
+      "type" : "route",
+      "data" : "/"
+    },
+    "about" : {
+      "type" : "static",
+      "data" : ["this is my bio."]
+    },
+    "social" : {
+      "type" : "static",
+      "data" : [
+        {
+          "text" : "github",
+          "href" : "https://github.com/genagain"
+        },
+        {
+          "text" : "linkedin",
+          "href" : "https://www.linkedin.com/in/genohta"
+        },
+        {
+          "text" : "email",
+          "href" : "mailto:ohta.g@husky.neu.edu"
+        }
+      ]
+    },
+    "resume" : {
+      "type" : "static",
+      "data" : [
+        {
+          "text" : "view pdf",
+          "href" : "#0"
+        }
+      ]
+    },
     "projects" : {
-      "list" : [
+      "type" : "static",
+      "data" : [
         "(1) capstone",
         "(2) the hook",
         "(3) cloud metric backup system",
         "(4) poster"
-      ],
-      "1" : "/project/capstone",
-      "2" : "/project/the-hook",
-      "3" : "/project/cloud-metric-backup-system",
-      "4" : "/project/poster"
+      ]
     },
-    "error" : "command not found... type 'help' to see a list of available commands.",
-    "help" : ["home", "about", "social", "projects", "clear", "commands"]
+    "1" : {
+      "type" : "route",
+      "data" : "/project/capstone"
+    },
+    "2" : {
+      "type" : "route",
+      "data" : "/project/the-hook"
+    },
+    "3" : {
+      "type" : "route",
+      "data" : "/project/cloud-metric-backup-system"
+    },
+    "4" : {
+      "type" : "route",
+      "data" : "/project/poster"
+    },
+    "help" : {
+      "type" : "static",
+      "data" : ["home", "about", "social", "projects", "clear", "commands"]
+    },
+    "clear" : {
+      "type" : "function",
+      "data" : "clearDisplay"
+    },
+    "blank" : {
+      "type" : "function",
+      "data" : "addBlankSegment"
+    },
+    "error" : ["command not found... type 'help' to see a list of available commands."]
   }
 }
