@@ -11,6 +11,7 @@ class App {
 
     this.dom = queryDom({ el: config.body })
 
+    // this.focus = this.focus.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
 
@@ -28,6 +29,7 @@ class App {
   addEvents() {
 
     // listen to submit event
+    events.on(config.body, 'click', _ => this.dom.input.focus())
     events.on(this.dom.form, 'submit', this.onSubmit)
     events.on(this.dom.input, 'keydown', this.onKeyPress)
   }
