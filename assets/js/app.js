@@ -62,48 +62,20 @@ class App {
 
       case 'static':
         const output = command.data[0].href ? command.data.map(this.toAnchor) : command.data
-        this.printCommand(userInput, output)
+        this.render(this.commandTemplate(userInput, output))
         break
 
       case 'function':
-        this[command.data]()
+        this.render(this[command.data]())
         break
 
       default:
-        this.printCommand(userInput, commands.error)
+        this.render(this.commandTemplate(userInput, commands.error))
     }
   }
 
   toAnchor(link) {
     return `<a target="_blank" href="${link.href}">${link.text}</a>`
-  }
-
-  clearDisplay() {
-    this.dom.commands.innerHTML = ''
-  }
-
-  addBlankSegment(userInput) {
-    const template = `
-      <li class="command">
-        <div class="command__input"></div>
-      </li>`
-
-    this.render(template)
-  }
-
-  printCommand(userInput, output) {
-
-    const template = `
-      <li class="command">
-        <div class="command__input">${userInput}</div>
-        <div class="command__output">
-          <ul class="command__output--list">
-            ${output.map(item => `<li class="command__output--list-item">${item}</li>`).join('')}
-          </ul>
-        </div>
-      </li>`
-
-    this.render(template)
   }
 
   render(template) {
@@ -112,6 +84,29 @@ class App {
       .querySelector('.command')
 
     this.dom.commands.appendChild(html)
+  }
+
+  blankTemplate() {
+    return `
+      <li class="command">
+        <div class="command__input"></div>
+      </li>`
+  }
+
+  commandTemplate(userInput, output) {
+    return `
+      <li class="command">
+        <div class="command__input">${userInput}</div>
+        <div class="command__output">
+          <ul class="command__output--list">
+            ${output.map(item => `<li class="command__output--list-item">${item}</li>`).join('')}
+          </ul>
+        </div>
+      </li>`
+  }
+
+  clearDisplay() {
+    this.dom.commands.innerHTML = ''
   }
 
   onKeyPress(e) {

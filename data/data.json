@@ -111,7 +111,7 @@
     },
     "blank" : {
       "type" : "function",
-      "data" : "addBlankSegment"
+      "data" : "blankTemplate"
     },
     "error" : ["command not found... type 'help' to see a list of available commands."]
   }
