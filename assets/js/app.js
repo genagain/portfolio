@@ -11,7 +11,6 @@ class App {
 
     this.dom = queryDom({ el: config.body })
 
-    // this.focus = this.focus.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
 
@@ -137,6 +136,10 @@ class App {
         }
         break
 
+      case App.TAB:
+        e.preventDefault()
+        break
+
       default: break
     }
   }
@@ -147,6 +150,10 @@ class App {
 
   static get KEY_DOWN() {
     return 40
+  }
+
+  static get TAB() {
+    return 9
   }
 }
 
