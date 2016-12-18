@@ -5,8 +5,6 @@ import classes from 'dom-classes'
 import create from 'dom-create-element'
 import gsap from 'gsap'
 
-TweenLite.defaultEase = Expo.easeOut
-
 class Preloader {
 
 	constructor(onComplete) {
@@ -50,7 +48,7 @@ class Preloader {
 			`
 		})
 
-		this.view.insertBefore(this.el, page)
+		config.body.appendChild(this.el)
 	}
 
 	resize(width, height) {
@@ -63,7 +61,6 @@ class Preloader {
 
 		const tl = new TimelineMax({ paused: true, onComplete: () => {
 			done()
-			// call this.preloaded to bring the first route
 			this.preloaded()
 		}})
 		tl.to(this.el, 1, {autoAlpha: 1})
@@ -82,7 +79,7 @@ class Preloader {
 		classes.add(config.body, 'is-loaded')
 		classes.remove(config.body, 'is-loading')
 
-		this.view.removeChild(this.el)
+		config.body.removeChild(this.el)
 
 		done()
 	}
