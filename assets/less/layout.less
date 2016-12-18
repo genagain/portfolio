@@ -31,12 +31,6 @@ html {
 body {
 	background: @grey-dark;
 	color: @white;
-
-	&.is-loaded {
-		footer{
-			opacity: 1;
-		}
-	}
 }
 
 /* -----
@@ -84,84 +78,11 @@ Home
 @import "pages/_home.less";
 
 /* -----
-About
+Section
 ----- */
-@import "pages/_about.less";
-
-/* -----
-Sub Views
------ */
-@import "pages/_sub.less";
+@import "pages/_section.less";
 
 /* -----
 Medias Queries
 ----- */
 @import "import/_medias.less";
-
-
-.command:before {
-	content: '$';
-	display: inline-block;
-}
-
-.command__input {
-	display: inline-block;
-}
-
-.command__output {
-	margin-left: 2ch;
-}
-
-.prompt {
-	position: absolute;
-	z-index: 1;
-	padding: 20px;
-	top: 0; left: 0; bottom: 0;
-	.size(40%, 100%);
-
-	&__bg {
-		.fixed();
-		z-index: -1;
-		background-color: @black;
-		transform-origin: left;
-	}
-
-	&__form {
-		position: relative;
-
-		&--input, &--submit {
-			position: absolute;
-			left: 0;
-			opacity: 0;
-			pointer-events: none;
-		}
-
-		&--display {
-
-			&:before {
-				content: '$';
-				display: inline-block;
-				margin-right: 1ch;
-			}
-		}
-
-		&--spacer {
-			display: inline-block;
-			width: 1ch;
-			height: 1.7ch;
-			vertical-align: baseline;
-			margin: 0 0 -1px -1ch;
-		}
-
-		&--cursor {
-			display: inline-block;
-			width: 1ch;
-			height: 1.7ch;
-			background-color: @white;
-			vertical-align: baseline;
-			margin: 0 0 -1px -1ch;
-			visibility: hidden;
-			animation: blink 1s steps(2,end) infinite;
-		}
-	}
-}
