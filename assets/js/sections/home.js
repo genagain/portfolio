@@ -45,8 +45,6 @@ class Home extends Default {
 
 		this.dom = null
 
-		this.page.parentNode.removeChild(this.page)
-
 		done()
 	}
 }

@@ -231,7 +231,7 @@ const utils = {
             	}, 1)
             }
 
-            view.appendChild(page)
+            slug !== 'home' && view.appendChild(page)
 
             return page
         }
