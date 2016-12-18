@@ -29,18 +29,14 @@ class Home extends Default {
 
 		classes.add(config.body, `is-${this.slug}`)
 
-		const tl = new TimelineMax({ paused: true, onComplete: done })
-		tl.to(config.dom.prompt, .7, { transform: 'none', ease: Expo.easeInOut })
-		tl.restart()
+		done()
 	}
 
 	animateOut(req, done) {
 
 		classes.remove(config.body, `is-${this.slug}`)
 
-		const tl = new TimelineMax({ paused: true, onComplete: done })
-		tl.to(config.dom.prompt, .7, { transform: 'scaleX(.4)', ease: Expo.easeInOut })
-		tl.restart()
+		done()
 	}
 
 	destroy(req, done) {
