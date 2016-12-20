@@ -11,8 +11,11 @@
     "cloud-metric-backup-system" : {
       "title" : "cloud metric backup system page here"
     },
+    "poster" : {
+      "title" : "poster page here"
+    },
     "frqnt-flyr" : {
-      "title" : "Frqnt Flyr",
+      "title" : "(5) Frqnt Flyr",
       "media" : {
         "links" : [
           {"url": "http://frqntflyr.herokuapp.com/", "title": "Live"},
@@ -36,9 +39,6 @@
         "Foundation",
         "Sass"
       ]
-    },
-    "poster" : {
-      "title" : "poster page here"
     }
   },
   "commands" : {
@@ -79,10 +79,13 @@
     "projects" : {
       "type" : "static",
       "data" : [
+        "enter a number to view a project.",
+        "&nbsp;",
         "(1) capstone",
         "(2) the hook",
         "(3) cloud metric backup system",
-        "(4) poster"
+        "(4) poster",
+        "(5) frqnt flyr"
       ]
     },
     "1" : {
@@ -100,6 +103,10 @@
     "4" : {
       "type" : "route",
       "data" : "/project/poster"
+    },
+    "5" : {
+      "type" : "route",
+      "data" : "/project/frqnt-flyr"
     },
     "hello" : {
       "type" : "static",
