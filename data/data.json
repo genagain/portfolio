@@ -5,11 +5,11 @@
       "title" : "(1) Capstone",
       "media" : {
         "links" : [
-          {"url": "TODO: Fill this in", "title": "Demo Video"},
-          {"url": "TODO: Fill this in", "title": "Source Code"}
+          {"url": "https://www.youtube.com/watch?v=PmyN9vv7u9s", "title": "Demo Video"},
+          {"url": "https://github.com/EyeoT/EyeoT", "title": "Source Code"}
         ],
         "images" : [
-          { "src": "TODO: Get block diagram", "alt": "Block Diagram"}
+          { "src": "../assets/img/block-diagram.png", "alt": "Block Diagram"}
         ]
       },
       "content" : [
