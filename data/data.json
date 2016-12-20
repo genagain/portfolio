@@ -29,8 +29,8 @@
       "title" : "(2) Cloud Metric Backup System",
       "media" : {
         "links" : [
-          {"url": "TODO: Fill this in", "title": "Document explaining how it works"},
-          {"url": "TODO: Fill this in", "title": "TODO: Get Source Code"}
+          {"url": "../assets/img/monitoring-data-backup-infrastructure.pdf", "title": "Tutorial"},
+          {"url": "#0", "title": "TODO: Get Source Code"}
         ],
         "images" : [
           { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram"}
