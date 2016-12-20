@@ -33,7 +33,7 @@
           {"url": "TODO: Fill this in", "title": "TODO: Get Source Code"}
         ],
         "images" : [
-          { "src": "TODO: Get block diagram", "alt": "Block Diagram"}
+          { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram"}
         ]
       },
       "content" : [
