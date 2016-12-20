@@ -3,7 +3,28 @@
   "about" : "my bio",
   "projects" : {
     "capstone" : {
-      "title" : "capstone page here"
+      "title" : "EyeoT",
+      "media" : {
+        "links" : [
+          {"url": "TODO: Fill this in", "title": "Demo Video"},
+          {"url": "TODO: Fill this in", "title": "Source Code"}
+        ],
+        "images" : [
+          { "src": "TODO: Get block diagram", "alt": "Block Diagram"}
+        ]
+      },
+      "content" : [
+        "EyeoT is an system that enables people suffering from neurodegenerative diseases to control light switches with their eyes",
+        "Jenna Czeck, Harrison Dimmig, Filmon Elias, Franchesca Sally, and Eric Tseng and I made this",
+        "We made this for our Senior Capstone project"
+      ],
+      "tech" : [
+        "Python",
+        "Pupil Labs's Eye-Tracker",
+        "Ubuntu",
+        "Bluetooth Low Energy",
+        "Arduino"
+      ]
     },
     "the-hook" : {
       "title" : "the hook page here"
