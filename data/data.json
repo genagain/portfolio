@@ -29,8 +29,31 @@
     "the-hook" : {
       "title" : "the hook page here"
     },
-    "cloud-metric-backup-system" : {
-      "title" : "cloud metric backup system page here"
+    "cloud-metric-backup" : {
+      "title" : "Cloud Metric Backup",
+      "media" : {
+        "links" : [
+          {"url": "TODO: Fill this in", "title": "Document explaining how it works"},
+          {"url": "TODO: Fill this in", "title": "TODO: Get Source Code"}
+        ],
+        "images" : [
+          { "src": "TODO: Get block diagram", "alt": "Block Diagram"}
+        ]
+      },
+      "content" : [
+        "When I worked at the Massachusetts Open Cloud, I created a system to backup all of metrics about the cloud",
+        "Physical resource utiliztion metrics and aggregated logs from 18 hypervisors are backed up",
+        "I implemented this by myself",
+        "Dr. Ata Turk, who was my supervisor at the time, helped me design it"
+      ],
+      "tech" : [
+        "Python",
+        "InfluxDB",
+        "Elasticsearch",
+        "Openstack's Swift",
+        "Cron Jobs"
+      ]
+
     },
     "poster" : {
       "title" : "poster page here"
