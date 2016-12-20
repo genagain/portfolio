@@ -21,6 +21,9 @@
 .column{
   display: block;
   float: left;
+  &:not(:last-child) {
+    padding-right: 2rem;
+  }
 }
 .col-1{width:@col_1}
 .col-2{width:@col_2}
