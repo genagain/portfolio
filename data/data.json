@@ -3,16 +3,16 @@
   "about" : "my bio",
   "projects" : {
     "capstone" : {
-      "title" : "capstone page here"
+      "title" : "(1) capstone"
     },
     "the-hook" : {
-      "title" : "the hook page here"
+      "title" : "(2) the hook"
     },
     "cloud-metric-backup-system" : {
-      "title" : "cloud metric backup system page here"
+      "title" : "(3) cloud metric backup system"
     },
     "poster" : {
-      "title" : "poster page here"
+      "title" : "(4) poster"
     },
     "frqnt-flyr" : {
       "title" : "(5) Frqnt Flyr",
