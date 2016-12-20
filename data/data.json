@@ -30,7 +30,7 @@
       "media" : {
         "links" : [
           {"url": "../assets/documents/monitoring-data-backup-infrastructure.pdf", "title": "Tutorial"},
-          {"url": "#0", "title": "TODO: Get Source Code"}
+          {"url": "#0", "title": "Source Code"}
         ],
         "images" : [
           { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram"}
