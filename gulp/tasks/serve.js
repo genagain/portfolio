@@ -6,7 +6,7 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
 gulp.task('serve', ['less', 'lint', 'js'], function() {
-	
+
 	browserSync({
 		notify: false,
 		server: {
@@ -14,9 +14,9 @@ gulp.task('serve', ['less', 'lint', 'js'], function() {
 			middleware: [ history() ]
 		}
 	});
-	
+
 	gulp.watch('assets/less/**/*.less', ['less']);
 	gulp.watch('assets/js/**/*.js', ['js', 'lint']);
 
-	gulp.watch(['*.html', 'build/*.css', 'build/*.js'], {cwd: ''}, reload);
+	gulp.watch(['*.html', 'templates/*.mst', 'build/*.css', 'build/*.js'], {cwd: ''}, reload);
 });

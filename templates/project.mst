@@ -1,1 +1,30 @@
-<h1>{{ title }}</h1>
+<h1 class="project__title js-el">{{ title }}</h1>
+
+<a class="project__close" href="/">
+  <div class="project__close--inner">
+    <div></div>
+    <div></div>
+  </div>
+</a>
+
+{{ #media.images }}
+  <img class="project__image js-el" src="{{ src }}" alt="{{ alt }}" />
+{{ /media.images }}
+<div class="project__info row">
+  <div class="column col-9">
+    <h2 class="project__title--secondary js-el">Description</h2>
+    <p class="js-el">
+      {{ #content }}
+        {{.}}.
+      {{ /content }}
+    </p>
+  </div>
+  <div class="column col-3">
+    <h2 class="project__title--secondary js-el">Technologies</h2>
+    <ul class="js-el">
+      {{ #tech }}
+        <li>{{.}}</li>
+      {{ /tech }}
+    </ul>
+  </div>
+</div>
