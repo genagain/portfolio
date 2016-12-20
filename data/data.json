@@ -13,7 +13,7 @@
         ]
       },
       "content" : [
-        "EyeoT is an system that enables people suffering from neurodegenerative diseases to control light switches with their eyes",
+        "EyeoT is an IoT solution that enables people with neurogenerative diseases to turn on lights with their eyes",
         "Jenna Czeck, Harrison Dimmig, Filmon Elias, Franchesca Sally, and Eric Tseng and I made this",
         "We made this for our Senior Capstone project"
       ],
@@ -49,7 +49,6 @@
         "Openstack's Swift",
         "Cron Jobs"
       ]
-
     },
     "frqnt-flyr" : {
       "title" : "(3) Frqnt Flyr",
