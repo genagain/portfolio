@@ -29,7 +29,7 @@
       "title" : "(2) Cloud Metric Backup System",
       "media" : {
         "links" : [
-          {"url": "../assets/img/monitoring-data-backup-infrastructure.pdf", "title": "Tutorial"},
+          {"url": "../assets/documents/monitoring-data-backup-infrastructure.pdf", "title": "Tutorial"},
           {"url": "#0", "title": "TODO: Get Source Code"}
         ],
         "images" : [
@@ -108,7 +108,7 @@
       "data" : [
         {
           "text" : "view pdf",
-          "href" : "../assets/img/Gen-Ohta-Resume.pdf"
+          "href" : "../assets/documents/Gen-Ohta-Resume.pdf"
         }
       ]
     },
