@@ -3,7 +3,7 @@
   "about" : "my bio",
   "projects" : {
     "capstone" : {
-      "title" : "EyeoT",
+      "title" : "(1) Capstone",
       "media" : {
         "links" : [
           {"url": "TODO: Fill this in", "title": "Demo Video"},
@@ -26,8 +26,8 @@
         "Arduino"
       ]
     },
-    "cloud-metric-backup" : {
-      "title" : "Cloud Metric Backup",
+    "cloud-metric-backup-system" : {
+      "title" : "(2) Cloud Metric Backup System",
       "media" : {
         "links" : [
           {"url": "TODO: Fill this in", "title": "Document explaining how it works"},
@@ -52,11 +52,8 @@
       ]
 
     },
-    "poster" : {
-      "title" : "poster page here"
-    },
     "frqnt-flyr" : {
-      "title" : "(5) Frqnt Flyr",
+      "title" : "(3) Frqnt Flyr",
       "media" : {
         "links" : [
           {"url": "http://frqntflyr.herokuapp.com/", "title": "Live"},
@@ -123,10 +120,8 @@
         "enter a number to view a project.",
         "&nbsp;",
         "(1) capstone",
-        "(2) the hook",
-        "(3) cloud metric backup system",
-        "(4) poster",
-        "(5) frqnt flyr"
+        "(2) cloud metric backup system",
+        "(3) frqnt flyr"
       ]
     },
     "1" : {
@@ -135,17 +130,9 @@
     },
     "2" : {
       "type" : "route",
-      "data" : "/project/the-hook"
-    },
-    "3" : {
-      "type" : "route",
       "data" : "/project/cloud-metric-backup-system"
     },
-    "4" : {
-      "type" : "route",
-      "data" : "/project/poster"
-    },
-    "5" : {
+    "3" : {
       "type" : "route",
       "data" : "/project/frqnt-flyr"
     },
