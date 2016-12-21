@@ -1,21 +1,57 @@
 {
   "home" : "this is the home page",
-  "about" : "my bio",
   "projects" : {
     "capstone" : {
-      "title" : "capstone page here"
-    },
-    "the-hook" : {
-      "title" : "the hook page here"
+      "title" : "(1) Capstone",
+      "media" : {
+        "links" : [
+          {"url": "https://www.youtube.com/watch?v=PmyN9vv7u9s", "title": "Demo Video"},
+          {"url": "https://github.com/EyeoT/EyeoT", "title": "Source Code"}
+        ],
+        "images" : [
+          { "src": "../assets/img/block-diagram.png", "alt": "Block Diagram"}
+        ]
+      },
+      "content" : [
+        "EyeoT is an IoT solution that enables people with neurogenerative diseases to turn on lights with their eyes",
+        "Jenna Czeck, Harrison Dimmig, Filmon Elias, Franchesca Sally, and Eric Tseng and I made this",
+        "We made this for our Senior Capstone project"
+      ],
+      "tech" : [
+        "Python",
+        "Pupil Labs's Eye-Tracker",
+        "Ubuntu",
+        "Bluetooth Low Energy",
+        "Arduino"
+      ]
     },
     "cloud-metric-backup-system" : {
-      "title" : "cloud metric backup system page here"
-    },
-    "poster" : {
-      "title" : "poster page here"
+      "title" : "(2) Cloud Metric Backup System",
+      "media" : {
+        "links" : [
+          {"url": "../assets/documents/monitoring-data-backup-infrastructure.pdf", "title": "Tutorial"},
+          {"url": "#0", "title": "Source Code"}
+        ],
+        "images" : [
+          { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram"}
+        ]
+      },
+      "content" : [
+        "When I worked at the Massachusetts Open Cloud, I created a system to backup all of metrics about the cloud",
+        "Physical resource utiliztion metrics and aggregated logs from 18 hypervisors are backed up",
+        "I implemented this by myself",
+        "Dr. Ata Turk, who was my supervisor at the time, helped me design it"
+      ],
+      "tech" : [
+        "Python",
+        "InfluxDB",
+        "Elasticsearch",
+        "Openstack's Swift",
+        "Cron Jobs"
+      ]
     },
     "frqnt-flyr" : {
-      "title" : "(5) Frqnt Flyr",
+      "title" : "(3) Frqnt Flyr",
       "media" : {
         "links" : [
           {"url": "http://frqntflyr.herokuapp.com/", "title": "Live"},
@@ -48,7 +84,7 @@
     },
     "about" : {
       "type" : "static",
-      "data" : ["this is my bio."]
+      "data" : ["Hi, I'm Gen Ohta. I'm a software engineer that loves working with large datasets."]
     },
     "social" : {
       "type" : "static",
@@ -72,7 +108,7 @@
       "data" : [
         {
           "text" : "view pdf",
-          "href" : "#0"
+          "href" : "../assets/documents/Gen-Ohta-Resume.pdf"
         }
       ]
     },
@@ -82,10 +118,8 @@
         "enter a number to view a project.",
         "&nbsp;",
         "(1) capstone",
-        "(2) the hook",
-        "(3) cloud metric backup system",
-        "(4) poster",
-        "(5) frqnt flyr"
+        "(2) cloud metric backup system",
+        "(3) frqnt flyr"
       ]
     },
     "1" : {
@@ -94,17 +128,9 @@
     },
     "2" : {
       "type" : "route",
-      "data" : "/project/the-hook"
-    },
-    "3" : {
-      "type" : "route",
       "data" : "/project/cloud-metric-backup-system"
     },
-    "4" : {
-      "type" : "route",
-      "data" : "/project/poster"
-    },
-    "5" : {
+    "3" : {
       "type" : "route",
       "data" : "/project/frqnt-flyr"
     },
