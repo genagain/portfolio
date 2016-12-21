@@ -8,45 +8,43 @@ import query from 'query-dom-components'
 
 class Default {
 
-    constructor(opt = {}) {
+  constructor(opt = {}) {
 
-        this.view = config.view
-        this.page = null
-        this.a = null
-    }
+    this.view = config.view
+    this.page = null
+    this.a = null
+  }
 
-    init(req, done, options) {
+  init(req, done, options) {
 
-        const opts = options || { cache: true, sub: false }
+    const opts = options || { cache: true, sub: false }
 
-        const view = this.view
-        const ready = this.dataAdded.bind(this, done)
-        const page = this.page = utils.biggie.loadPage(req, view, opts, ready)
-    }
+    const view = this.view
+    const ready = this.dataAdded.bind(this, done)
+    const page = this.page = utils.biggie.loadPage(req, view, opts, ready)
+  }
 
-    dataAdded() {
+  dataAdded() {
 
-        this.dom = query({ el: this.page })
+    this.dom = query({ el: this.page })
 
-        this.a = $.all('a', this.page)
+    this.a = $.all('a', this.page)
 
-        utils.biggie.addRoutingEL(this.a)
-        // remove for production, use for debugging
-        console.log(window._data)
-    }
+    utils.biggie.addRoutingEL(this.a)
+  }
 
-    resize(width, height) {
+  resize(width, height) {
 
-        config.height = height
-        config.width = width
-    }
+    config.height = height
+    config.width = width
+  }
 
-    destroy() {
+  destroy() {
 
-        utils.biggie.removeRoutingEL(this.a)
+    utils.biggie.removeRoutingEL(this.a)
 
-        this.a = null
-    }
+    this.a = null
+  }
 }
 
 module.exports = Default
