@@ -82,11 +82,7 @@ class App {
   }
 
   render(template) {
-    const html = new DOMParser()
-      .parseFromString(template, 'text/html')
-      .querySelector('.command')
-
-    config.dom.commands.appendChild(html)
+    config.dom.commands.innerHTML += template
   }
 
   blankTemplate() {
