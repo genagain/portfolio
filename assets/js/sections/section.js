@@ -31,15 +31,13 @@ class Section extends Default {
 		const tl = new TimelineMax({paused: true, onComplete: done})
 		tl.to(config.dom.prompt, 1.2, { transform: 'scaleX(.4)', ease: Expo.easeInOut }, 'in')
 		tl.to(this.page, 1.2, { autoAlpha: 1, ease: Expo.easeInOut }, 'in')
-		tl.staggerTo(this.dom.el, 1, { x: 0, autoAlpha: 1, ease: Expo.easeOut }, .05, .2, 'in')
+		tl.staggerTo(this.dom.el, 1, { x: 0, autoAlpha: 1, ease: Expo.easeOut, delay: .2 }, .05, 'in')
 		tl.restart()
 	}
 
 	animateOut(req, done) {
 
 		classes.remove(config.body, `is-${this.slug}`)
-
-		console.log(req.route)
 
 		req.route === '/' ? this.animateToHome(done) : this.animateToSection(done)
 	}
