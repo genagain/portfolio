@@ -3,6 +3,7 @@ import utils from 'utils'
 import config from 'config'
 import events from 'dom-event'
 import classes from 'dom-classes'
+import strftime from 'strftime'
 
 class App {
 
@@ -19,6 +20,7 @@ class App {
   init() {
 
     this.addEvents()
+    console.log(strftime('Last login: %a %b %-d %X on ttys000'))
     framework.init()
 
     config.dom.input.focus()
