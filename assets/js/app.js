@@ -22,8 +22,7 @@ class App {
     this.addEvents()
     framework.init()
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
-    config.dom.header.innerHTML += `<span class="datetime">${currentDatetime}</span>`
-
+    config.dom.header.innerHTML += `<p>${currentDatetime}</p>`
     config.dom.input.focus()
   }
 
