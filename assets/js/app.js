@@ -21,9 +21,10 @@ class App {
 
     this.addEvents()
     framework.init()
+    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    config.dom.header.innerHTML += `<span class="datetime">${currentDatetime}</span>`
 
     config.dom.input.focus()
-    this.render(this.datetimeTemplate())
   }
 
   addEvents() {
@@ -83,11 +84,9 @@ class App {
   render(template) {
     const html = new DOMParser()
       .parseFromString(template, 'text/html')
-      .querySelector('.datetime')
+      .querySelector('.command')
 
-    console.log(template)
-    debugger
-    config.dom.datetime.appendChild(html)
+    config.dom.commands.appendChild(html)
   }
 
   blankTemplate() {
@@ -107,14 +106,6 @@ class App {
           </ul>
         </div>
       </li>`
-  }
-
-  datetimeTemplate() {
-    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
-    return `
-      <div class="datetime">
-        <div class="datetime__current">${currentDatetime}</div>
-      </div>`
   }
 
   errorTemplate(userInput, output) {
