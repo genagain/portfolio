@@ -20,10 +20,10 @@ class App {
   init() {
 
     this.addEvents()
-    console.log(strftime('Last login: %a %b %-d %X on ttys000'))
     framework.init()
 
     config.dom.input.focus()
+    this.render(this.datetimeTemplate())
   }
 
   addEvents() {
@@ -85,7 +85,9 @@ class App {
       .parseFromString(template, 'text/html')
       .querySelector('.command')
 
-    config.dom.commands.appendChild(html)
+    console.log(template)
+    debugger
+    config.dom.datetime.appendChild(html)
   }
 
   blankTemplate() {
@@ -104,6 +106,14 @@ class App {
             ${output.map(item => `<li class="command__output--list-item">${item}</li>`).join('')}
           </ul>
         </div>
+      </li>`
+  }
+
+  datetimeTemplate() {
+    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    return `
+      <li class="command">
+        <div class="command__input">${currentDatetime}</div>
       </li>`
   }
 
