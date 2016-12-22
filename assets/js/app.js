@@ -83,7 +83,7 @@ class App {
   render(template) {
     const html = new DOMParser()
       .parseFromString(template, 'text/html')
-      .querySelector('.command')
+      .querySelector('.datetime')
 
     console.log(template)
     debugger
@@ -112,9 +112,9 @@ class App {
   datetimeTemplate() {
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
     return `
-      <li class="command">
-        <div class="command__input">${currentDatetime}</div>
-      </li>`
+      <div class="datetime">
+        <div class="datetime__current">${currentDatetime}</div>
+      </div>`
   }
 
   errorTemplate(userInput, output) {
