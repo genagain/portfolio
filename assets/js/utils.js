@@ -163,50 +163,14 @@ const utils = {
 
       const slug = utils.biggie.getSlug(req, options)
       const page = utils.biggie.createPage(req, slug)
+      const section = req.params.id
 
-      if(!cache[slug] || !options.cache) {
+      if (section && !cache[slug] || !options.cache) {
 
-        const data = req.params.id ? window._data.projects[req.params.id] : window._data
+        const data = section ? window._data.projects[section] : window._data
         const href = slug.substring(0,7) === 'project' ? 'project' : slug
 
-        if(req.params.id) {
-
-          const projects = window._data.projects
-          let index = 1
-
-          data.projects = []
-
-          for (var prop in projects){
-
-            if (projects.hasOwnProperty(prop)){
-
-              const i = index.toString().length === 1 ? `0${index}` : index
-                const o = {
-                  'index': i,
-                  'current': req.params.id === prop,
-                  'key': prop,
-                  'data': projects[prop]
-                }
-
-              if(req.params.id === prop) {
-
-                // data.projects.unshift(o)
-                config.index = index-1
-                config.color = projects[prop].index_color
-
-              } else {
-
-                // data.projects.push(o)
-              }
-
-              data.projects.push(o)
-
-              index++
-            }
-          }
-        }
-
-      	ajax.get(`${config.BASE}templates/${href}.mst`, {
+        ajax.get(`${config.BASE}templates/${href}.mst`, {
       		success: (object) => {
       			const rendered = Mustache.render(object.data, data)
       			page.innerHTML = rendered
@@ -217,13 +181,13 @@ const utils = {
 
       } else {
 
-      	setTimeout(() => {
+      	setTimeout(_ => {
       		page.innerHTML = cache[slug]
       		done()
       	}, 1)
       }
 
-      slug !== 'home' && view.appendChild(page)
+      section && view.appendChild(page)
 
       return page
     }
