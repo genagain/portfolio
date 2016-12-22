@@ -13,6 +13,9 @@ const config = {
 	height: window.innerHeight,
 
 	infos: null,
+	
+	projects: null,
+	current: null,
 
 	hist: []
 }

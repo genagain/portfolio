@@ -163,14 +163,47 @@ const utils = {
 
       const slug = utils.biggie.getSlug(req, options)
       const page = utils.biggie.createPage(req, slug)
-      const section = req.params.id
 
-      if (section && !cache[slug] || !options.cache) {
+      // early exit for home view
+      if (!req.params.id) {
+        done()
+        return page
+      }
 
-        const data = section ? window._data.projects[section] : window._data
-        const href = slug.substring(0,7) === 'project' ? 'project' : slug
+      const projects = window._data.projects
+      const data = projects[req.params.id]
 
-        ajax.get(`${config.BASE}templates/${href}.mst`, {
+      // get total # number of projects and set index initial index
+      const length = Object.keys(projects).length - 1
+      let index = 0
+
+      data.projects = []
+
+      for (var prop in projects) {
+        if (projects.hasOwnProperty(prop)) {
+
+          const o = {
+            'index': index,
+            'current': req.params.id === prop,
+            'next': index < length ? index + 1 : null,
+            'prev': index > 0 ? index - 1 : null
+          }
+
+          data.projects.push(o)
+          index++
+        }
+      }
+
+      config.projects = data.projects
+      config.current = config.projects.indexOf(config.projects.find(p => p.current))
+
+      // for debug only - remove for production
+      console.log(config.projects, config.current)
+
+
+      if (!cache[slug] || !options.cache) {
+
+        ajax.get(`${config.BASE}templates/project.mst`, {
       		success: (object) => {
       			const rendered = Mustache.render(object.data, data)
       			page.innerHTML = rendered
@@ -187,7 +220,7 @@ const utils = {
       	}, 1)
       }
 
-      section && view.appendChild(page)
+      view.appendChild(page)
 
       return page
     }
