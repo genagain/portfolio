@@ -9,12 +9,18 @@ class App {
 
   constructor(opt = {}) {
 
-    this.onSubmit = this.onSubmit.bind(this)
-    this.onKeyPress = this.onKeyPress.bind(this)
-    this.updateDisplay = this.updateDisplay.bind(this)
-    this.addSpaceToDisplay = this.addSpaceToDisplay.bind(this)
+    if (sniffer.isDevice) {
+      config.dom.header.innerHTML += "WTF?"
+      // debugger
 
-    this.init()
+    } else {
+      this.onSubmit = this.onSubmit.bind(this)
+      this.onKeyPress = this.onKeyPress.bind(this)
+      this.updateDisplay = this.updateDisplay.bind(this)
+      this.addSpaceToDisplay = this.addSpaceToDisplay.bind(this)
+
+      this.init()
+    }
   }
 
   init() {
@@ -22,11 +28,7 @@ class App {
     this.addEvents()
     framework.init()
 
-    if (sniffer.isDevice) {
-      config.dom.commands.innerHTML += "WTF?"
-    } else {
-      config.dom.input.focus()
-    }
+    config.dom.input.focus()
 
   }
 
