@@ -10,9 +10,7 @@ class App {
   constructor(opt = {}) {
 
     if (sniffer.isDevice) {
-      config.dom.header.innerHTML += "Typing in the terminal with only two fingers is hard. Get on a computer!!"
-      config.dom.commands.outerHTML = ""
-      config.dom.form.outerHTML = ""
+      config.body.innerHTML = `<p style="padding:20px;">Typing with only two fingers is hard. Get on a computer!!</p>`
     } else {
       this.onSubmit = this.onSubmit.bind(this)
       this.onKeyPress = this.onKeyPress.bind(this)
