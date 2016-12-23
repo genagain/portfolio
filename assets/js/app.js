@@ -11,8 +11,7 @@ class App {
 
     if (sniffer.isDevice) {
       config.dom.header.innerHTML += "WTF?"
-      // debugger
-
+      config.dom.form.innerHTML = ""
     } else {
       this.onSubmit = this.onSubmit.bind(this)
       this.onKeyPress = this.onKeyPress.bind(this)
