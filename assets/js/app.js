@@ -27,7 +27,6 @@ class App {
     framework.init()
 
     config.dom.input.focus()
-
   }
 
   addEvents() {
