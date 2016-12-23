@@ -3,6 +3,7 @@ import utils from 'utils'
 import config from 'config'
 import events from 'dom-event'
 import classes from 'dom-classes'
+import sniffer from 'sniffer'
 
 class App {
 
@@ -21,7 +22,12 @@ class App {
     this.addEvents()
     framework.init()
 
-    config.dom.input.focus()
+    if (sniffer.isDevice) {
+      config.dom.commands.innerHTML += "WTF?"
+    } else {
+      config.dom.input.focus()
+    }
+
   }
 
   addEvents() {
