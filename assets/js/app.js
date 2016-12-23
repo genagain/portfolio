@@ -10,7 +10,7 @@ class App {
   constructor(opt = {}) {
 
     if (sniffer.isDevice) {
-      config.dom.header.innerHTML += "WTF?"
+      config.dom.header.innerHTML += "Typing in the terminal with only two fingers is hard. Get on a computer!!"
       config.dom.commands.outerHTML = ""
       config.dom.form.outerHTML = ""
     } else {
