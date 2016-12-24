@@ -170,35 +170,16 @@ const utils = {
         return page
       }
 
-      const projects = window._data.projects
-      const data = projects[req.params.id]
+      const projects = Object.keys(window._data.projects)
+      const data = window._data.projects[req.params.id]
+      const current = projects.indexOf(req.params.id)
 
-      // get total # number of projects and set index initial index
-      const length = Object.keys(projects).length - 1
-      let index = 0
+      if (req.previous) {
 
-      data.projects = []
+        const previous = projects.indexOf(req.previous.params.id)
 
-      for (var prop in projects) {
-        if (projects.hasOwnProperty(prop)) {
-
-          const o = {
-            'index': index,
-            'current': req.params.id === prop,
-            'next': index < length ? index + 1 : null,
-            'prev': index > 0 ? index - 1 : null
-          }
-
-          data.projects.push(o)
-          index++
-        }
+        config.direction = previous < current ? 'next' : 'prev'
       }
-
-      config.projects = data.projects
-      config.current = config.projects.indexOf(config.projects.find(p => p.current))
-
-      // for debug only - remove for production
-      console.log(config.projects, config.current)
 
 
       if (!cache[slug] || !options.cache) {
