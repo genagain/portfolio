@@ -3,7 +3,7 @@ import utils from 'utils'
 import config from 'config'
 import events from 'dom-event'
 import classes from 'dom-classes'
-import sniffer from 'sniffer'
+import strftime from 'strftime'
 
 class App {
 
@@ -25,7 +25,8 @@ class App {
 
     this.addEvents()
     framework.init()
-
+    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    config.dom.header.innerHTML += `<p>${currentDatetime}</p>`
     config.dom.input.focus()
   }
 
@@ -84,11 +85,7 @@ class App {
   }
 
   render(template) {
-    const html = new DOMParser()
-      .parseFromString(template, 'text/html')
-      .querySelector('.command')
-
-    config.dom.commands.appendChild(html)
+    config.dom.commands.innerHTML += template
   }
 
   blankTemplate() {

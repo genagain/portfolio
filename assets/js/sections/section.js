@@ -28,10 +28,20 @@ class Section extends Default {
 
 		classes.add(config.body, `is-${this.slug}`)
 
-		const tl = new TimelineMax({paused: true, onComplete: done})
+		const tl = new TimelineMax({ paused: true, onComplete: done })
 		tl.to(config.dom.prompt, 1.2, { transform: 'scaleX(.4)', ease: Expo.easeInOut }, 'in')
 		tl.to(this.page, 1.2, { autoAlpha: 1, ease: Expo.easeInOut }, 'in')
-		tl.staggerTo(this.dom.el, 1, { x: 0, autoAlpha: 1, ease: Expo.easeOut }, .05, .2, 'in')
+		tl.staggerFromTo(this.dom.el, 1,  {
+			x: config.direction === 'next' ? 400 : -400,
+			autoAlpha: 1,
+			ease: Expo.easeOut,
+			delay: .2
+		}, {
+			x: 0,
+			autoAlpha: 1,
+			ease: Expo.easeOut,
+			delay: .2
+		}, .05, 'in')
 		tl.restart()
 	}
 
@@ -39,25 +49,23 @@ class Section extends Default {
 
 		classes.remove(config.body, `is-${this.slug}`)
 
-		console.log(req.route)
-
-		req.route === '/' ? this.animateToHome(done) : this.animateToSection(done)
+		req.params.id ?  this.animateOutToSection(done) : this.animateOutToHome(done)
 	}
 
-	animateToHome(done) {
+	animateOutToSection(done) {
 
-		const tl = new TimelineMax({paused: true, onComplete: done})
+		const tl = new TimelineMax({ paused: true, onComplete: done })
 		tl.to(this.page, 1, { autoAlpha: 0, ease: Expo.easeInOut }, 'out')
-		tl.staggerTo(this.dom.el, 1, { autoAlpha: 0, x: 400, ease: Expo.easeIn }, -.05, 'out')
-		tl.to(config.dom.prompt, 1, { transform: 'none', ease: Expo.easeInOut }, .2, 'out')
+		tl.staggerTo(this.dom.el, .7, { x: config.direction === 'next' ? -400 : 400,  autoAlpha: 0, ease: Expo.easeIn }, .05, 'out')
 		tl.restart()
 	}
 
-	animateToSection(done) {
+	animateOutToHome(done) {
 
-		const tl = new TimelineMax({paused: true, onComplete: done})
+		const tl = new TimelineMax({ paused: true, onComplete: done })
 		tl.to(this.page, 1, { autoAlpha: 0, ease: Expo.easeInOut }, 'out')
-		tl.staggerTo(this.dom.el, .7, { autoAlpha: 0, x: -400, ease: Expo.easeIn }, .05, 'out')
+		tl.staggerTo(this.dom.el, 1, { x: 400, autoAlpha: 0, ease: Expo.easeIn }, -.05, 'out')
+		tl.to(config.dom.prompt, 1, { transform: 'none', ease: Expo.easeInOut }, .2, 'out')
 		tl.restart()
 	}
 
