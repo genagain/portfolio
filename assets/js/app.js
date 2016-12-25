@@ -9,6 +9,11 @@ class App {
 
   constructor(opt = {}) {
 
+    if (config.infos.isDevice) {
+      config.body.innerHTML = `<p style="padding:20px;">Typing with only two fingers is hard. Get on a computer!!</p>`
+      return
+    }
+
     this.onSubmit = this.onSubmit.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
     this.updateDisplay = this.updateDisplay.bind(this)

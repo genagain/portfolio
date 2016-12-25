@@ -1,5 +1,6 @@
 import queryDom from 'query-dom-components'
 import domselect from 'dom-select'
+import sniffer from 'sniffer'
 
 const config = {
 
@@ -12,7 +13,7 @@ const config = {
 	width: window.innerWidth,
 	height: window.innerHeight,
 
-	infos: null,
+	infos: sniffer.getInfos(),
 
 	direction: 'next',
 
