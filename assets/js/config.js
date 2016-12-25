@@ -14,6 +14,8 @@ const config = {
 
 	infos: null,
 
+	direction: 'next',
+
 	hist: []
 }
 
