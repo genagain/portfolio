@@ -9,16 +9,17 @@ class App {
 
   constructor(opt = {}) {
 
-    if (sniffer.isDevice) {
+    if (config.infos.isDevice) {
       config.body.innerHTML = `<p style="padding:20px;">Typing with only two fingers is hard. Get on a computer!!</p>`
-    } else {
-      this.onSubmit = this.onSubmit.bind(this)
-      this.onKeyPress = this.onKeyPress.bind(this)
-      this.updateDisplay = this.updateDisplay.bind(this)
-      this.addSpaceToDisplay = this.addSpaceToDisplay.bind(this)
-
-      this.init()
+      return
     }
+
+    this.onSubmit = this.onSubmit.bind(this)
+    this.onKeyPress = this.onKeyPress.bind(this)
+    this.updateDisplay = this.updateDisplay.bind(this)
+    this.addSpaceToDisplay = this.addSpaceToDisplay.bind(this)
+
+    this.init()
   }
 
   init() {
