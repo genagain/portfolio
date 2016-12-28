@@ -42,6 +42,17 @@ class App {
 
   renderWelcome() {
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    const welcome_ascii = `
+ \/$$      \/$$         \/$$                                        \/$$\/$$
+| $$  /$ | $$        | $$                                       | $| $$
+| $$ \/$$$| $$ \/$$$$$$| $$ \/$$$$$$$ \/$$$$$$ \/$$$$$$\/$$$$  \/$$$$$$| $| $$
+| $$\/$$ $$ $$\/$$__  $| $$\/$$_____\/\/$$__  $| $$_  $$_  $$\/$$__  $| $| $$
+| $$$$_  $$$| $$$$$$$| $| $$     | $$  \\ $| $$ \\ $$ \\ $| $$$$$$$|__|__\/
+| $$$\/ \\  $$| $$_____| $| $$     | $$  | $| $$ | $$ | $| $$_____\/
+| $$\/   \\  $|  $$$$$$| $|  $$$$$$|  $$$$$$| $$ | $$ | $|  $$$$$$$/$$/$$
+|__\/     \\__\/\\_______|__\/\\_______\/\\______\/|__\/ |__\/ |__\/\\_______|__|__\/
+    `
+    config.dom.header.innerHTML += `<pre>${welcome_ascii}</pre>`
     config.dom.header.innerHTML += `<p>${currentDatetime}</p>`
   }
 
@@ -89,6 +100,7 @@ class App {
     return `<a target="_blank" href="${link.href}">${link.text}</a>`
   }
 
+  // refactor render command to render to the header as well with an optional header boolean
   render(template) {
     config.dom.commands.innerHTML += template
   }
