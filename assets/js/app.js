@@ -26,8 +26,7 @@ class App {
 
     this.addEvents()
     framework.init()
-    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
-    config.dom.header.innerHTML += `<p>${currentDatetime}</p>`
+    this.renderWelcome()
     config.dom.input.focus()
   }
 
@@ -39,6 +38,11 @@ class App {
     events.on(config.dom.input, 'keydown', this.onKeyPress)
     events.on(config.dom.input, 'keyup', this.addSpaceToDisplay)
     events.on(config.dom.input, 'input', this.updateDisplay)
+  }
+
+  renderWelcome() {
+    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    config.dom.header.innerHTML += `<p>${currentDatetime}</p>`
   }
 
   onSubmit(e) {
