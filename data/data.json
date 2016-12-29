@@ -84,10 +84,16 @@
     },
     "about" : {
       "type" : "static",
+      "prompt" : ["&nbsp;"],
       "data" : ["Hi, I'm Gen Ohta. I'm a software engineer that loves working with large datasets."]
     },
     "social" : {
       "type" : "static",
+      "prompt" : [
+        "&nbsp;",
+        "click a link below",
+        "&nbsp;"
+      ],
       "data" : [
         {
           "text" : "github",
@@ -105,6 +111,11 @@
     },
     "resume" : {
       "type" : "static",
+      "prompt" : [
+        "&nbsp;",
+        "click the link below to view my resume",
+        "&nbsp;"
+      ],
       "data" : [
         {
           "text" : "view pdf",
@@ -114,12 +125,14 @@
     },
     "projects" : {
       "type" : "static",
-      "data" : [
+      "prompt" : [
         "&nbsp;",
         "enter a number to view a project.",
         "&nbsp;",
-        "For example, to see my capstone press 1 and then enter",
-        "&nbsp;",
+        "for example, to see my capstone press 1 and then enter",
+        "&nbsp;"
+      ],
+      "data" : [
         "(1) capstone",
         "(2) cloud metric backup system",
         "(3) frqnt flyr"
@@ -143,28 +156,35 @@
     },
     "yes" : {
       "type" : "static",
-      "data" : ["&nbsp;",
-                "Type in one of the following commands",
-                "&nbsp;",
-                "&nbsp;&nbsp;home",
-                "&nbsp;&nbsp;about",
-                "&nbsp;&nbsp;social",
-                "&nbsp;&nbsp;projects",
-                "&nbsp;&nbsp;resume",
-                "&nbsp;&nbsp;clear"
+      "prompt" : [
+        "&nbsp;",
+        "type in one of the following commands",
+        "&nbsp;"
+      ],
+      "data" : [
+        "&nbsp;",
+        "&nbsp;&nbsp;home",
+        "&nbsp;&nbsp;about",
+        "&nbsp;&nbsp;social",
+        "&nbsp;&nbsp;projects",
+        "&nbsp;&nbsp;resume",
+        "&nbsp;&nbsp;clear"
       ]
     },
     "help" : {
       "type" : "static",
-      "data" : ["&nbsp;",
-                "Type in one of the following commands",
-                "&nbsp;",
-                "&nbsp;&nbsp;home",
-                "&nbsp;&nbsp;about",
-                "&nbsp;&nbsp;social",
-                "&nbsp;&nbsp;projects",
-                "&nbsp;&nbsp;resume",
-                "&nbsp;&nbsp;clear"
+      "prompt" : [
+        "&nbsp;",
+        "type in one of the following commands",
+        "&nbsp;"
+      ],
+      "data" : [
+        "&nbsp;&nbsp;home",
+        "&nbsp;&nbsp;about",
+        "&nbsp;&nbsp;social",
+        "&nbsp;&nbsp;projects",
+        "&nbsp;&nbsp;resume",
+        "&nbsp;&nbsp;clear"
       ]
     },
     "clear" : {

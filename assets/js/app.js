@@ -89,7 +89,8 @@ class App {
 
       case 'static':
         const output = command.data[0].href ? command.data.map(this.toAnchor) : command.data
-        this.render(this.commandTemplate(userInput, output))
+        console.log(this.commandTemplate(userInput, command.prompt, output))
+        this.render(this.commandTemplate(userInput, command.prompt, output))
         break
 
       case 'function':
@@ -118,10 +119,15 @@ class App {
       </li>`
   }
 
-  commandTemplate(userInput, output) {
+  commandTemplate(userInput, prompt, output) {
     return `
       <li class="command">
         <div class="command__input">${userInput}</div>
+        <div class="command__prompt">
+          <ul class="command__prompt--list">
+            ${prompt.map(item => `<li class="command__prompt--list-item">${item}</li>`).join('')}
+          </ul>
+        </div>
         <div class="command__output">
           <ul class="command__output--list">
             ${output.map(item => `<li class="command__output--list-item">${item}</li>`).join('')}
