@@ -41,7 +41,7 @@ class App {
   }
 
   renderWelcome() {
-    const welcome_ascii = `
+    const asciiArt = `
  \/$$      \/$$         \/$$                                        \/$$\/$$
 | $$  /$ | $$        | $$                                       | $| $$
 | $$ \/$$$| $$ \/$$$$$$| $$ \/$$$$$$$ \/$$$$$$ \/$$$$$$\/$$$$  \/$$$$$$| $| $$
@@ -53,12 +53,7 @@ class App {
     `
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
     const prompt = "Hello! It's a pleasure to meet you. I'm Gen. Please type something below"
-    this.render(`<pre>${welcome_ascii}</pre>`, 'header')
-    // to do some kind of map operation or a welcome template method
-    this.render(`<p>&nbsp;</p>`, 'header')
-    this.render(`<p>${currentDatetime}</p>`, 'header')
-    this.render(`<p>&nbsp;</p>`, 'header')
-    this.render(`<p>${prompt}</p>`, 'header')
+    this.render(this.welcomeTemplate(asciiArt, currentDatetime, prompt))
   }
 
   onSubmit(e) {
@@ -105,10 +100,20 @@ class App {
     return `<a target="_blank" href="${link.href}">${link.text}</a>`
   }
 
-  // refactor render command to render to the header as well with an optional header boolean
   render(template, section = 'commands') {
     const element = section === 'commands' ? config.dom.commands : config.dom.header
     element.innerHTML += template
+  }
+
+  welcomeTemplate(asciiArt, time, prompt) {
+    return `
+    <div class="welcome">
+      <pre>${asciiArt}</pre>
+      <p>&nbsp;</p>
+      <p>${time}</p>
+      <p>&nbsp;</p>
+      <p>${prompt}</p>
+    </div>`
   }
 
   blankTemplate() {
@@ -117,7 +122,6 @@ class App {
         <div class="command__input"></div>
       </li>`
   }
-
   commandTemplate(userInput, prompt, output) {
     return `
       <li class="command">
