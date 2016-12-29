@@ -115,7 +115,10 @@
     "projects" : {
       "type" : "static",
       "data" : [
+        "&nbsp;",
         "enter a number to view a project.",
+        "&nbsp;",
+        "For example, to see my capstone press 1 and then enter",
         "&nbsp;",
         "(1) capstone",
         "(2) cloud metric backup system",
@@ -140,11 +143,29 @@
     },
     "yes" : {
       "type" : "static",
-      "data" : ["&nbsp;", "commands:", "&nbsp;", "&nbsp;&nbsp;home", "&nbsp;&nbsp;about", "&nbsp;&nbsp;social", "&nbsp;&nbsp;projects", "&nbsp;&nbsp;resume", "&nbsp;&nbsp;clear"]
+      "data" : ["&nbsp;",
+                "Type in one of the following commands",
+                "&nbsp;",
+                "&nbsp;&nbsp;home",
+                "&nbsp;&nbsp;about",
+                "&nbsp;&nbsp;social",
+                "&nbsp;&nbsp;projects",
+                "&nbsp;&nbsp;resume",
+                "&nbsp;&nbsp;clear"
+      ]
     },
     "help" : {
       "type" : "static",
-      "data" : ["&nbsp;", "commands:", "&nbsp;", "&nbsp;&nbsp;home", "&nbsp;&nbsp;about", "&nbsp;&nbsp;social", "&nbsp;&nbsp;projects", "&nbsp;&nbsp;resume", "&nbsp;&nbsp;clear"]
+      "data" : ["&nbsp;",
+                "Type in one of the following commands",
+                "&nbsp;",
+                "&nbsp;&nbsp;home",
+                "&nbsp;&nbsp;about",
+                "&nbsp;&nbsp;social",
+                "&nbsp;&nbsp;projects",
+                "&nbsp;&nbsp;resume",
+                "&nbsp;&nbsp;clear"
+      ]
     },
     "clear" : {
       "type" : "function",
