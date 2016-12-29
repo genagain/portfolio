@@ -41,7 +41,6 @@ class App {
   }
 
   renderWelcome() {
-    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
     const welcome_ascii = `
  \/$$      \/$$         \/$$                                        \/$$\/$$
 | $$  /$ | $$        | $$                                       | $| $$
@@ -52,8 +51,9 @@ class App {
 | $$\/   \\  $|  $$$$$$| $|  $$$$$$|  $$$$$$| $$ | $$ | $|  $$$$$$$/$$/$$
 |__\/     \\__\/\\_______|__\/\\_______\/\\______\/|__\/ |__\/ |__\/\\_______|__|__\/
     `
-    config.dom.header.innerHTML += `<pre>${welcome_ascii}</pre>`
-    config.dom.header.innerHTML += `<p>${currentDatetime}</p>`
+    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    this.render(`<pre>${welcome_ascii}</pre>`, 'header')
+    this.render(`<p>${currentDatetime}</p>`, 'header')
   }
 
   onSubmit(e) {
@@ -101,8 +101,9 @@ class App {
   }
 
   // refactor render command to render to the header as well with an optional header boolean
-  render(template) {
-    config.dom.commands.innerHTML += template
+  render(template, section = 'commands') {
+    const element = section === 'commands' ? config.dom.commands : config.dom.header
+    element.innerHTML += template
   }
 
   blankTemplate() {
