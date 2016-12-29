@@ -148,6 +148,7 @@ class App {
   }
 
   clearDisplay() {
+    config.dom.header.innerHTML = ''
     config.dom.commands.innerHTML = ''
   }
 
