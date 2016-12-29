@@ -26,7 +26,8 @@ class App {
 
     this.addEvents()
     framework.init()
-    this.renderWelcome()
+    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    config.dom.datetime.innerHTML += currentDatetime
     config.dom.input.focus()
   }
 
@@ -38,11 +39,6 @@ class App {
     events.on(config.dom.input, 'keydown', this.onKeyPress)
     events.on(config.dom.input, 'keyup', this.addSpaceToDisplay)
     events.on(config.dom.input, 'input', this.updateDisplay)
-  }
-
-  renderWelcome() {
-    const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
-    config.dom.datetime.innerHTML += currentDatetime
   }
 
   onSubmit(e) {
@@ -92,17 +88,6 @@ class App {
   render(template, section = 'commands') {
     const element = section === 'commands' ? config.dom.commands : config.dom.header
     element.innerHTML += template
-  }
-
-  welcomeTemplate(asciiArt, time, prompt) {
-    return `
-    <div class="welcome">
-      <pre>${asciiArt}</pre>
-      <p>&nbsp;</p>
-      <p>${time}</p>
-      <p>&nbsp;</p>
-      <p>${prompt}</p>
-    </div>`
   }
 
   blankTemplate() {
