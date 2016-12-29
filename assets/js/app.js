@@ -89,7 +89,6 @@ class App {
 
       case 'static':
         const output = command.data[0].href ? command.data.map(this.toAnchor) : command.data
-        console.log(this.commandTemplate(userInput, command.prompt, output))
         this.render(this.commandTemplate(userInput, command.prompt, output))
         break
 
