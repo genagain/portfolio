@@ -52,8 +52,13 @@ class App {
 |__\/     \\__\/\\_______|__\/\\_______\/\\______\/|__\/ |__\/ |__\/\\_______|__|__\/
     `
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
+    const prompt = "Hello! It's a pleasure to meet you. I'm Gen. Please type something below"
     this.render(`<pre>${welcome_ascii}</pre>`, 'header')
+    // to do some kind of map operation or a welcome template method
+    this.render(`<p>&nbsp;</p>`, 'header')
     this.render(`<p>${currentDatetime}</p>`, 'header')
+    this.render(`<p>&nbsp;</p>`, 'header')
+    this.render(`<p>${prompt}</p>`, 'header')
   }
 
   onSubmit(e) {
