@@ -41,19 +41,8 @@ class App {
   }
 
   renderWelcome() {
-    const asciiArt = `
- \/$$      \/$$         \/$$                                        \/$$\/$$
-| $$  /$ | $$        | $$                                       | $| $$
-| $$ \/$$$| $$ \/$$$$$$| $$ \/$$$$$$$ \/$$$$$$ \/$$$$$$\/$$$$  \/$$$$$$| $| $$
-| $$\/$$ $$ $$\/$$__  $| $$\/$$_____\/\/$$__  $| $$_  $$_  $$\/$$__  $| $| $$
-| $$$$_  $$$| $$$$$$$| $| $$     | $$  \\ $| $$ \\ $$ \\ $| $$$$$$$|__|__\/
-| $$$\/ \\  $$| $$_____| $| $$     | $$  | $| $$ | $$ | $| $$_____\/
-| $$\/   \\  $|  $$$$$$| $|  $$$$$$|  $$$$$$| $$ | $$ | $|  $$$$$$$/$$/$$
-|__\/     \\__\/\\_______|__\/\\_______\/\\______\/|__\/ |__\/ |__\/\\_______|__|__\/
-    `
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
-    const prompt = "Hello! It's a pleasure to meet you. I'm Gen. Please type something below"
-    this.render(this.welcomeTemplate(asciiArt, currentDatetime, prompt))
+    config.dom.datetime.innerHTML += currentDatetime
   }
 
   onSubmit(e) {
