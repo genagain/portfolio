@@ -152,6 +152,7 @@
     },
     "hello" : {
       "type" : "static",
+      "prompt" : ["&nbsp;"],
       "data" : ["hello there! welcome to my portfolio. do you need any help?"]
     },
     "yes" : {
