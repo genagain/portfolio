@@ -27,7 +27,7 @@ class App {
     this.addEvents()
     framework.init()
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
-    config.dom.header.innerHTML += `<p>${currentDatetime}</p>`
+    config.dom.datetime.innerHTML += currentDatetime
     config.dom.input.focus()
   }
 
@@ -69,7 +69,7 @@ class App {
 
       case 'static':
         const output = command.data[0].href ? command.data.map(this.toAnchor) : command.data
-        this.render(this.commandTemplate(userInput, output))
+        this.render(this.commandTemplate(userInput, command.prompt, output))
         break
 
       case 'function':
@@ -85,8 +85,9 @@ class App {
     return `<a target="_blank" href="${link.href}">${link.text}</a>`
   }
 
-  render(template) {
-    config.dom.commands.innerHTML += template
+  render(template, section = 'commands') {
+    const element = section === 'commands' ? config.dom.commands : config.dom.header
+    element.innerHTML += template
   }
 
   blankTemplate() {
@@ -95,11 +96,15 @@ class App {
         <div class="command__input"></div>
       </li>`
   }
-
-  commandTemplate(userInput, output) {
+  commandTemplate(userInput, prompt, output) {
     return `
       <li class="command">
         <div class="command__input">${userInput}</div>
+        <div class="command__prompt">
+          <ul class="command__prompt--list">
+            ${prompt.map(item => `<li class="command__prompt--list-item">${item}</li>`).join('')}
+          </ul>
+        </div>
         <div class="command__output">
           <ul class="command__output--list">
             ${output.map(item => `<li class="command__output--list-item">${item}</li>`).join('')}
@@ -121,6 +126,7 @@ class App {
   }
 
   clearDisplay() {
+    config.dom.header.innerHTML = ''
     config.dom.commands.innerHTML = ''
   }
 
