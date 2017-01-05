@@ -39,7 +39,7 @@ class Preloader {
 			html: `
 				<div class="vertical-align">
 					<div class="vertical-align__item">
-						<p>Preloader</p>
+						<p>initializing...</p>
 					</div>
 				</div>
 			`
