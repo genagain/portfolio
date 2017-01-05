@@ -61,7 +61,7 @@ class Preloader {
 	animateOut(req, done) {
 
 		const tl = new TimelineMax({ paused: true, onComplete: done })
-		tl.to(this.el, 1, {autoAlpha: 0})
+		tl.to(this.el, 1, {autoAlpha: 1})
 		tl.restart()
 	}
 
