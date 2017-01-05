@@ -64,7 +64,20 @@ class App {
 
     switch(command.type) {
       case 'route':
-        framework.go(command.data)
+        // get index of last projects
+        const projectIndex = config.hist.lastIndexOf('projects')
+
+        if (projectIndex > -1) {
+          framework.go(command.data)
+          // TODO: render 'displaying capstone'
+          // check if there is anything or only numbers after projects in history with a function
+          // console.log(command.prompt)
+          console.log(config.hist)
+          console.log(projectIndex)
+          console.log(this.index)
+        } else {
+          this.render(this.errorTemplate(userInput, commands.error))
+        }
         break
 
       case 'static':
