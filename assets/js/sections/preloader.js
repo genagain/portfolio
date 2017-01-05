@@ -36,13 +36,7 @@ class Preloader {
 		this.el = create({
 			selector: 'div',
 			styles: 'preloader',
-			html: `
-				<div class="vertical-align">
-					<div class="vertical-align__item">
-						<p>Preloader</p>
-					</div>
-				</div>
-			`
+			html: `<p>initializing...</p>`
 		})
 
 		config.body.appendChild(this.el)
@@ -67,7 +61,7 @@ class Preloader {
 	animateOut(req, done) {
 
 		const tl = new TimelineMax({ paused: true, onComplete: done })
-		tl.to(this.el, 1, {autoAlpha: 0})
+		tl.to(this.el, 1, {autoAlpha: 1})
 		tl.restart()
 	}
 
