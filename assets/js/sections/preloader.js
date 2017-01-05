@@ -59,9 +59,12 @@ class Preloader {
 	}
 
 	animateOut(req, done) {
+		
+		const intro = [config.dom.header, config.dom.form]
 
 		const tl = new TimelineMax({ paused: true, onComplete: done })
-		tl.to(this.el, 1, {autoAlpha: 1})
+		tl.to(this.el, 0, {autoAlpha: 0})
+		tl.to(intro, 0, {autoAlpha: 1})
 		tl.restart()
 	}
 

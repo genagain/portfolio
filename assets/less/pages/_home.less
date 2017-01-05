@@ -15,9 +15,14 @@ Home
 		background-color: @black;
 		transform-origin: left;
 	}
+	
+	&__header {
+		.hidden();
+	}
 
 	&__form {
 		position: relative;
+		.hidden();
 
 		&--input, &--submit {
 			position: absolute;
