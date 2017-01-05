@@ -36,13 +36,7 @@ class Preloader {
 		this.el = create({
 			selector: 'div',
 			styles: 'preloader',
-			html: `
-				<div class="vertical-align">
-					<div class="vertical-align__item">
-						<p>initializing...</p>
-					</div>
-				</div>
-			`
+			html: `<p>initializing...</p>`
 		})
 
 		config.body.appendChild(this.el)
