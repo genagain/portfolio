@@ -28,7 +28,6 @@ class App {
     framework.init()
     const currentDatetime = strftime('Last login: %a %b %-d %X on ttys000')
     config.dom.datetime.innerHTML += currentDatetime
-    config.dom.input.focus()
   }
 
   addEvents() {
