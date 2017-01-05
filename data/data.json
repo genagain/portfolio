@@ -85,7 +85,7 @@
     "about" : {
       "type" : "static",
       "prompt" : ["&nbsp;"],
-      "data" : ["Hi, I'm Gen Ohta. I'm a software engineer that loves working with large datasets."]
+      "data" : ["Hi, I'm Gen Ohta. I'm a software engineer who loves working with large datasets."]
     },
     "social" : {
       "type" : "static",
