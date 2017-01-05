@@ -16,6 +16,8 @@ class Home extends Default {
 	init(req, done) {
 
 		super.init(req, done)
+		
+		config.dom.input.focus()
 	}
 
 	dataAdded(done) {
