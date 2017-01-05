@@ -37,8 +37,8 @@
         ]
       },
       "content" : [
-        "When I worked at the Massachusetts Open Cloud, I created a system to backup all of metrics about the cloud",
-        "Physical resource utiliztion metrics and aggregated logs from 18 hypervisors are backed up",
+        "When I worked at the Massachusetts Open Cloud, I created a system to back up all of the metrics about the cloud",
+        "Physical resource utilization metrics and aggregated logs from 18 hypervisors are backed up",
         "I implemented this by myself",
         "Dr. Ata Turk, who was my supervisor at the time, helped me design it"
       ],
@@ -85,7 +85,7 @@
     "about" : {
       "type" : "static",
       "prompt" : ["&nbsp;"],
-      "data" : ["Hi, I'm Gen Ohta. I'm a software engineer that loves working with large datasets."]
+      "data" : ["Hi, I'm Gen Ohta. I'm a software engineer who loves working with large datasets."]
     },
     "social" : {
       "type" : "static",
