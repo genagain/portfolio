@@ -64,13 +64,8 @@ class App {
 
     switch(command.type) {
       case 'route':
-        // get index of last projects
-        const projectIndex = config.hist.lastIndexOf('projects')
-
-        if (projectIndex > -1 || userInput === 'home') {
+        if (this.validateProjectUsage() || userInput === 'home') {
           framework.go(command.data)
-          // check if there is anything or only numbers after projects in history with a function
-
           this.render(this.commandTemplate(userInput, command.prompt, []))
         } else {
           this.render(this.errorTemplate(userInput, commands.error))
@@ -89,6 +84,12 @@ class App {
       default:
         this.render(this.errorTemplate(userInput, commands.error))
     }
+  }
+
+  validateProjectUsage() {
+    const projectIndex = config.hist.lastIndexOf('projects')
+    const projectUsage = config.hist.slice(projectIndex, this.index).join("")
+    return projectUsage.match(/projects\d+$/)
   }
 
   toAnchor(link) {
