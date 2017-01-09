@@ -64,7 +64,7 @@ class App {
 
     switch(command.type) {
       case 'route':
-        if (this.validateProjectUsage() || userInput === 'home') {
+        if (userInput === 'home' || this.validateProjectUsage()) {
           framework.go(command.data)
           this.render(this.commandTemplate(userInput, command.prompt, []))
         } else {
