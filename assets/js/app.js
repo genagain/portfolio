@@ -64,7 +64,7 @@ class App {
 
     switch(command.type) {
       case 'route':
-        if (this.validateProjectUsage() || userInput === 'home') {
+        if (this.validateUsage('projects') || userInput === 'home') {
           framework.go(command.data)
           this.render(this.commandTemplate(userInput, command.prompt, []))
         } else {
@@ -86,10 +86,10 @@ class App {
     }
   }
 
-  validateProjectUsage() {
-    const projectIndex = config.hist.lastIndexOf('projects')
-    const projectUsage = config.hist.slice(projectIndex, this.index).join("")
-    return projectUsage.match(/projects\d+$/)
+  validateUsage(command) {
+    const commandIndex = config.hist.lastIndexOf(command)
+    const choiceUsage = config.hist.slice(commandIndex+1, this.index).join("")
+    return choiceUsage.match(/\d+$/)
   }
 
   toAnchor(link) {
