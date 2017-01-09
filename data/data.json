@@ -80,6 +80,10 @@
   "commands" : {
     "home" : {
       "type" : "route",
+      "prompt" : [
+        "loading home...",
+        "&nbsp;"
+      ],
       "data" : "/"
     },
     "about" : {
@@ -140,14 +144,26 @@
     },
     "1" : {
       "type" : "route",
+      "prompt" : [
+        "loading capstone...",
+        "&nbsp;"
+      ],
       "data" : "/project/capstone"
     },
     "2" : {
       "type" : "route",
+      "prompt" : [
+        "loading cloud metric backup system...",
+        "&nbsp;"
+      ],
       "data" : "/project/cloud-metric-backup-system"
     },
     "3" : {
       "type" : "route",
+      "prompt" : [
+        "loading frqnt flyr...",
+        "&nbsp;"
+      ],
       "data" : "/project/frqnt-flyr"
     },
     "hello" : {
