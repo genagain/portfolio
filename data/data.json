@@ -5,11 +5,10 @@
       "title" : "(1) Capstone",
       "media" : {
         "links" : [
-          {"url": "https://www.youtube.com/watch?v=PmyN9vv7u9s", "title": "Demo Video"},
           {"url": "https://github.com/EyeoT/EyeoT", "title": "Source Code"}
         ],
-        "images" : [
-          { "src": "../assets/img/block-diagram.png", "alt": "Block Diagram"}
+        "videos" : [
+          { "url": "https://www.youtube.com/embed/PmyN9vv7u9s", "title": "Demo Video"}
         ]
       },
       "content" : [
