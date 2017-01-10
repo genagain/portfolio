@@ -10,6 +10,11 @@
 {{ #media.images }}
   <img class="project__image js-el" src="{{ src }}" alt="{{ alt }}" />
 {{ /media.images }}
+
+{{ #media.videos }}
+   <iframe width="560" height="315" src="{{ url }}" frameborder="0" allowfullscreen></iframe>
+{{ /media.videos }}
+
 <div class="project__info row">
   <div class="column col-9">
     <h2 class="project__title--secondary js-el">Description</h2>
