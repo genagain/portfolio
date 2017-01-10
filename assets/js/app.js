@@ -63,7 +63,12 @@ class App {
 
     switch(command.type) {
       case 'route':
-        framework.go(command.data)
+        if (userInput === 'home' || this.validateProjectUsage()) {
+          framework.go(command.data)
+          this.render(this.commandTemplate(userInput, command.prompt, []))
+        } else {
+          this.render(this.errorTemplate(userInput, commands.error))
+        }
         break
 
       case 'static':
@@ -78,6 +83,10 @@ class App {
       default:
         this.render(this.errorTemplate(userInput, commands.error))
     }
+  }
+
+  validateProjectUsage() {
+    return config.hist.join('').match(/projects\d+$/)
   }
 
   toAnchor(link) {
