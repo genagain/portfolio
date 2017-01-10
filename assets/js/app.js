@@ -87,7 +87,7 @@ class App {
   }
 
   validateProjectUsage() {
-    return config.hist.join("").match(/projects\d+$/)
+    return config.hist.join('').match(/projects\d+$/)
   }
 
   toAnchor(link) {
