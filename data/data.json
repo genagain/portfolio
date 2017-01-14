@@ -21,7 +21,7 @@
         "Arduino"
       ],
       "links" : [
-        { "url": "https://github.com/EyeoT/EyeoT", "title": "View Source Code" }
+        { "url": "https://github.com/EyeoT/EyeoT", "label": "View Source Code" }
       ]
     },
     "cloud-metric-backup-system" : {
@@ -46,7 +46,7 @@
         "Cron Jobs"
       ],
       "links" : [
-        { "url": "../assets/documents/monitoring-data-backup-infrastructure.pdf", "title": "View Guide" }
+        { "url": "../assets/documents/monitoring-data-backup-infrastructure.pdf", "label": "View Guide" }
       ]
     },
     "frqnt-flyr" : {
@@ -71,8 +71,8 @@
         "Sass"
       ],
       "links" : [
-        { "url": "http://frqntflyr.herokuapp.com/", "title": "Visit Live Site" },
-        { "url": "https://github.com/MichaelSwartz/airlines", "title": "View Source Code" }
+        { "url": "http://frqntflyr.herokuapp.com/", "label": "Visit Live Site" },
+        { "url": "https://github.com/MichaelSwartz/airlines", "label": "View Source Code" }
       ]
     }
   },
