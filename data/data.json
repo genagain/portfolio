@@ -4,11 +4,8 @@
     "capstone" : {
       "title" : "(1) Capstone",
       "media" : {
-        "links" : [
-          {"url": "https://github.com/EyeoT/EyeoT", "title": "Source Code"}
-        ],
         "videos" : [
-          { "url": "https://www.youtube.com/embed/PmyN9vv7u9s", "title": "Demo Video"}
+          { "url": "https://www.youtube.com/embed/PmyN9vv7u9s" }
         ]
       },
       "content" : [
@@ -22,24 +19,24 @@
         "Ubuntu",
         "Bluetooth Low Energy",
         "Arduino"
+      ],
+      "links" : [
+        { "url": "https://github.com/EyeoT/EyeoT", "title": "View Source Code" }
       ]
     },
     "cloud-metric-backup-system" : {
       "title" : "(2) Cloud Metric Backup System",
       "media" : {
-        "links" : [
-          {"url": "../assets/documents/monitoring-data-backup-infrastructure.pdf", "title": "Tutorial"},
-          {"url": "#0", "title": "Source Code"}
-        ],
         "images" : [
-          { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram"}
+          { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram" }
         ]
       },
       "content" : [
         "When I worked at the Massachusetts Open Cloud, I created a system to back up all of the metrics about the cloud",
         "Physical resource utilization metrics and aggregated logs from 18 hypervisors are backed up",
         "I implemented this by myself",
-        "Dr. Ata Turk, who was my supervisor at the time, helped me design it"
+        "Dr. Ata Turk, who was my supervisor at the time, helped me design it",
+        "I also created a guide on how to use the system, which you can view below"
       ],
       "tech" : [
         "Python",
@@ -47,17 +44,16 @@
         "Elasticsearch",
         "Openstack's Swift",
         "Cron Jobs"
+      ],
+      "links" : [
+        { "url": "../assets/documents/monitoring-data-backup-infrastructure.pdf", "title": "View Guide" }
       ]
     },
     "frqnt-flyr" : {
       "title" : "(3) Frqnt Flyr",
       "media" : {
-        "links" : [
-          {"url": "http://frqntflyr.herokuapp.com/", "title": "Live"},
-          {"url": "https://github.com/MichaelSwartz/airlines", "title": "Source Code"}
-        ],
         "images" : [
-          { "src": "../assets/img/frqnt-flyer-home.png", "alt": "Frqnt Flyr Landing Page"}
+          { "src": "../assets/img/frqnt-flyer-home.png", "alt": "Frqnt Flyr Landing Page" }
         ]
       },
       "content" : [
@@ -73,6 +69,10 @@
         "Heroku",
         "Foundation",
         "Sass"
+      ],
+      "links" : [
+        { "url": "http://frqntflyr.herokuapp.com/", "title": "Visit Live Site" },
+        { "url": "https://github.com/MichaelSwartz/airlines", "title": "View Source Code" }
       ]
     }
   },
