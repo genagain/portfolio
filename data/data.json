@@ -3,11 +3,9 @@
   "projects" : {
     "capstone" : {
       "title" : "(1) Capstone",
-      "media" : {
-        "videos" : [
-          { "url": "https://www.youtube.com/embed/PmyN9vv7u9s" }
-        ]
-      },
+      "media" : [
+        { "video" : { "url": "https://www.youtube.com/embed/PmyN9vv7u9s" } }
+      ],
       "content" : [
         "EyeoT is an IoT solution that enables people with neurogenerative diseases to turn on lights with their eyes",
         "Jenna Czeck, Harrison Dimmig, Filmon Elias, Franchesca Sally, and Eric Tseng and I made this",
@@ -26,11 +24,9 @@
     },
     "cloud-metric-backup-system" : {
       "title" : "(2) Cloud Metric Backup System",
-      "media" : {
-        "images" : [
-          { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram" }
-        ]
-      },
+      "media" : [
+        { "image" : { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram" } }
+      ],
       "content" : [
         "When I worked at the Massachusetts Open Cloud, I created a system to back up all of the metrics about the cloud",
         "Physical resource utilization metrics and aggregated logs from 18 hypervisors are backed up",
@@ -51,11 +47,9 @@
     },
     "frqnt-flyr" : {
       "title" : "(3) Frqnt Flyr",
-      "media" : {
-        "images" : [
-          { "src": "../assets/img/frqnt-flyer-home.png", "alt": "Frqnt Flyr Landing Page" }
-        ]
-      },
+      "media" : [
+        { "image" : { "src": "../assets/img/frqnt-flyer-home.png", "alt": "Frqnt Flyr Landing Page" } }
+      ],
       "content" : [
         "Frqnt Flyr is a web app that allows users to review airlines",
         "Michael Swartz, Eric Grueter, David Tsang and I made this",
