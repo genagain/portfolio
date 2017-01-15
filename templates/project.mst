@@ -7,6 +7,32 @@
   </div>
 </a>
 
+<section class="project__info">
+  <div class="project__row">
+    <div class="column col-9">
+      <h2 class="project__title--secondary js-el">Description</h2>
+      <p class="project__description js-el">
+        {{ #content }}
+          {{.}}.
+        {{ /content }}
+      </p>
+    </div>
+    <div class="column col-3">
+      <h2 class="project__title--secondary js-el">Technologies</h2>
+      <ul class="project__tech js-el">
+        {{ #tech }}
+          <li>{{.}}</li>
+        {{ /tech }}
+      </ul>
+    </div>
+  </div>
+  <div class="project__row">
+  {{ #links }}
+    <a class="project__link js-el" href="{{ url }}" target="_blank">{{ label }}</a>&nbsp;
+  {{ /links }}
+  </div>
+</section>
+
 {{ #media }}
   {{ #image }}
     <img class="project__image js-el" src="{{ src }}" alt="{{ alt }}" />
@@ -17,25 +43,3 @@
     </div>
   {{ /image }}
 {{ /media }}
-
-<div class="project__info row">
-  <div class="column col-9">
-    <h2 class="project__title--secondary js-el">Description</h2>
-    <p class="project__description js-el">
-      {{ #content }}
-        {{.}}.
-      {{ /content }}
-    </p>
-    {{ #links }}
-      <a class="project__link js-el" href="{{ url }}" target="_blank">{{ label }}</a>&nbsp;
-    {{ /links }}
-  </div>
-  <div class="column col-3">
-    <h2 class="project__title--secondary js-el">Technologies</h2>
-    <ul class="js-el">
-      {{ #tech }}
-        <li>{{.}}</li>
-      {{ /tech }}
-    </ul>
-  </div>
-</div>

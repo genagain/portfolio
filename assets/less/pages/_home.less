@@ -8,12 +8,15 @@ Home
 	padding: 20px;
 	.size(40%, 100%);
 	overflow: auto;
+	@media (max-width: 650px) {
+		.size(100%, 40%);
+	}
 
 	&__bg {
 		.fixed();
 		z-index: -1;
 		background-color: @black;
-		transform-origin: left;
+		transform-origin: top left;
 	}
 	
 	&__header {
