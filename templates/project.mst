@@ -7,9 +7,17 @@
   </div>
 </a>
 
-{{ #media.images }}
-  <img class="project__image js-el" src="{{ src }}" alt="{{ alt }}" />
-{{ /media.images }}
+{{ #media }}
+  {{ #image }}
+    <img class="project__image js-el" src="{{ src }}" alt="{{ alt }}" />
+  {{ /image }}
+  {{ ^image }}
+    <div class="project__video js-el">
+      <iframe width="560" height="315" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+  {{ /image }}
+{{ /media }}
+
 <div class="project__info row">
   <div class="column col-9">
     <h2 class="project__title--secondary js-el">Description</h2>
