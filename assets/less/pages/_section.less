@@ -4,6 +4,11 @@
   top: 0; right: 0; bottom: 0;
   padding: 2rem 6rem 2rem 4rem;
   overflow: auto;
+  @media (max-width: 650px) {
+    .size(100%, 60%);
+    top: 40%;
+    padding: 20px;
+  }
 }
 
 .js-el {
@@ -12,11 +17,18 @@
 }
 
 .project {
+  
+  &__info {
+    margin-bottom: 2rem;
+  }
 
   &__title {
     text-transform: lowercase;
     margin-left: -4ch;
     margin-bottom: 2rem;
+    @media (max-width: 650px) {
+      margin-left: 0;
+    }
 
     &--secondary {
       font-size: 80%;
@@ -50,12 +62,21 @@
     }
   }
   
-  &__description {
-    margin-bottom: 1rem;
+  &__description, &__tech {
+    margin-bottom: .6rem;
   }
   
   &__link {
     display: inline-block;
+  }
+  
+  &__row {
+    .row();
+    .column {
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+    }
   }
 
   &__close {
@@ -66,6 +87,10 @@
     .size(@24px, @24px);
     position: fixed;
     top: 2rem; right: 2rem;
+    @media (max-width: 650px) {
+      top: calc(40% + 2rem);
+      z-index: 999;
+    }
 
     &--inner {
       .size(100%, 100%);
@@ -73,7 +98,7 @@
 
       div {
         background-color: @white;
-        .size(100%, @1px);
+        .size(100%, 1px);
         position: absolute;
         top: 50%;
         margin-top: -.5px;

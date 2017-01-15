@@ -45,7 +45,9 @@ class Section extends Default {
 			this.onLoad()
 		}})
 		
-		tl.to(config.dom.prompt, 1.2, { transform: 'scaleX(.4)', ease: Expo.easeInOut }, 'in')
+		const scale = config.width < 650 ? 'scaleY(.4)' : 'scaleX(.4)'
+		
+		tl.to(config.dom.prompt, 1.2, { transform: scale, ease: Expo.easeInOut }, 'in')
 		tl.to(this.page, 1.2, { autoAlpha: 1, ease: Expo.easeInOut }, 'in')
 		tl.staggerFromTo(this.dom.el, 1,  {
 			x: config.direction === 'next' ? 400 : -400,
@@ -86,6 +88,15 @@ class Section extends Default {
 		tl.staggerTo(this.dom.el, 1, { x: 400, autoAlpha: 0, ease: Expo.easeIn }, -.05, 'out')
 		tl.to(config.dom.prompt, 1, { transform: 'none', ease: Expo.easeInOut }, .2, 'out')
 		tl.restart()
+	}
+	
+	resize(width, height) {
+		
+		if (width < 650) {
+			config.dom.prompt.style.transform = 'matrix(1, 0, 0, .4, 0, 0)'
+		} else {
+			config.dom.prompt.style.transform = 'matrix(.4, 0, 0, 1, 0, 0)'
+		}
 	}
 
 	destroy(req, done) {
