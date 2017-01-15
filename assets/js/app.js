@@ -4,6 +4,7 @@ import config from 'config'
 import events from 'dom-event'
 import classes from 'dom-classes'
 import strftime from 'strftime'
+import ScrollToPlugin from '../../node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin.js'
 
 class App {
 
@@ -96,6 +97,8 @@ class App {
   render(template, section = 'commands') {
     const element = section === 'commands' ? config.dom.commands : config.dom.header
     element.innerHTML += template
+    
+    this.scrollDown()
   }
 
   blankTemplate() {
@@ -146,6 +149,13 @@ class App {
     if (e.keyCode !== App.SPACE) return
 
     config.dom.display.innerHTML += '<span class="prompt__form--spacer"></span>'
+  }
+  
+  scrollDown() {
+    
+    const target = config.dom.commands.getBoundingClientRect().height
+    
+    TweenLite.to('.prompt', 0.5, { scrollTo: target, ease: Power4.easeInOut })
   }
 
   onKeyPress(e) {

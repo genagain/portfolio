@@ -32,11 +32,20 @@ class Default {
 
     utils.biggie.addRoutingEL(this.a)
   }
+  
+  scrollDown() {
+    
+    const target = config.dom.commands.getBoundingClientRect().height
+    
+    TweenLite.to('.prompt', 0.5, { scrollTo: target, ease: Power4.easeInOut })
+  }
 
   resize(width, height) {
-
+    
     config.height = height
     config.width = width
+    
+    this.scrollDown()
   }
 
   destroy() {

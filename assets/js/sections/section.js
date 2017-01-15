@@ -2,6 +2,7 @@ import config from 'config'
 import utils from 'utils'
 import classes from 'dom-classes'
 import Default from './default'
+import ScrollToPlugin from '../../../node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin.js'
 
 class Section extends Default {
 
