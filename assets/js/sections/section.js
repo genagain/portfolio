@@ -23,12 +23,28 @@ class Section extends Default {
 
 		done()
 	}
+	
+	onLoad() {
+		const arr = Array.from(document.querySelectorAll('.js-prompt-item'))
+		const target = arr[arr.length - 1]
+		
+		if (!target)
+			return
+		
+		const text = target.innerHTML.slice(0, -6)
+		
+		target.innerHTML = `${text}done.`
+	}
 
 	animateIn(req, done) {
 
 		classes.add(config.body, `is-${this.slug}`)
 
-		const tl = new TimelineMax({ paused: true, onComplete: done })
+		const tl = new TimelineMax({ paused: true, onComplete: _ => {
+			done()
+			this.onLoad()
+		}})
+		
 		tl.to(config.dom.prompt, 1.2, { transform: 'scaleX(.4)', ease: Expo.easeInOut }, 'in')
 		tl.to(this.page, 1.2, { autoAlpha: 1, ease: Expo.easeInOut }, 'in')
 		tl.staggerFromTo(this.dom.el, 1,  {
@@ -62,7 +78,10 @@ class Section extends Default {
 
 	animateOutToHome(done) {
 
-		const tl = new TimelineMax({ paused: true, onComplete: done })
+		const tl = new TimelineMax({ paused: true, onComplete: _ => {
+			done()
+			this.onLoad()
+		}})
 		tl.to(this.page, 1, { autoAlpha: 0, ease: Expo.easeInOut }, 'out')
 		tl.staggerTo(this.dom.el, 1, { x: 400, autoAlpha: 0, ease: Expo.easeIn }, -.05, 'out')
 		tl.to(config.dom.prompt, 1, { transform: 'none', ease: Expo.easeInOut }, .2, 'out')
