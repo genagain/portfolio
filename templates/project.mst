@@ -21,11 +21,14 @@
 <div class="project__info row">
   <div class="column col-9">
     <h2 class="project__title--secondary js-el">Description</h2>
-    <p class="js-el">
+    <p class="project__description js-el">
       {{ #content }}
         {{.}}.
       {{ /content }}
     </p>
+    {{ #links }}
+      <a class="project__link js-el" href="{{ url }}" target="_blank">{{ label }}</a>&nbsp;
+    {{ /links }}
   </div>
   <div class="column col-3">
     <h2 class="project__title--secondary js-el">Technologies</h2>
