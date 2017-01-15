@@ -110,7 +110,7 @@ class App {
         <div class="command__input">${userInput}</div>
         <div class="command__prompt">
           <ul class="command__prompt--list">
-            ${prompt.map(item => `<li class="command__prompt--list-item">${item}</li>`).join('')}
+            ${prompt.map(item => `<li class="command__prompt--list-item js-prompt-item">${item}</li>`).join('')}
           </ul>
         </div>
         <div class="command__output">
