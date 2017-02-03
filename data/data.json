@@ -25,7 +25,7 @@
     "cloud-metric-backup-system" : {
       "title" : "(2) Cloud Metric Backup System",
       "media" : [
-        { "image" : { "src": "../assets/img/cloud-metrics-backup-diagram.png", "alt": "Block Diagram" } }
+        { "image" : { "src": "../assets/img/cloud-metrics-backup-diagram-min.png", "alt": "Block Diagram" } }
       ],
       "content" : [
         "When I worked at the Massachusetts Open Cloud, I created a system to back up all of the metrics about the cloud",
@@ -48,7 +48,7 @@
     "frqnt-flyr" : {
       "title" : "(3) Frqnt Flyr",
       "media" : [
-        { "image" : { "src": "../assets/img/frqnt-flyer-home.png", "alt": "Frqnt Flyr Landing Page" } }
+        { "image" : { "src": "../assets/img/frqnt-flyer-home-min.png", "alt": "Frqnt Flyr Landing Page" } }
       ],
       "content" : [
         "Frqnt Flyr is a web app that allows users to review airlines",
