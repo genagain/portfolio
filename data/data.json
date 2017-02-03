@@ -8,7 +8,7 @@
       ],
       "content" : [
         "EyeoT is an IoT solution that enables people with neurogenerative diseases to turn on lights with their eyes",
-        "Jenna Czeck, Harrison Dimmig, Filmon Elias, Franchesca Sally, and Eric Tseng and I made this",
+        "Five other people and I made this together",
         "We made this for our Senior Capstone project"
       ],
       "tech" : [
@@ -31,7 +31,7 @@
         "When I worked at the Massachusetts Open Cloud, I created a system to back up all of the metrics about the cloud",
         "Physical resource utilization metrics and aggregated logs from 18 hypervisors are backed up",
         "I implemented this by myself",
-        "Dr. Ata Turk, who was my supervisor at the time, helped me design it",
+        "My supervisor at the time helped me design it",
         "I also created a guide on how to use the system, which you can view below"
       ],
       "tech" : [
@@ -52,7 +52,7 @@
       ],
       "content" : [
         "Frqnt Flyr is a web app that allows users to review airlines",
-        "Michael Swartz, Eric Grueter, David Tsang and I made this",
+        "Three other people and I made this together",
         "It was the first web app any of us had ever deployed",
         "We made this app during our time at Launch Academy for a group project"
       ],
